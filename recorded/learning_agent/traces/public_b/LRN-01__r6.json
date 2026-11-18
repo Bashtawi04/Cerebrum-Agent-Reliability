@@ -1,0 +1,166 @@
+{
+ "format": 1,
+ "scenario": "LRN-01",
+ "run": 6,
+ "user": "E1014",
+ "thread": "LRN-01-c5d954",
+ "title": "Read-only questions: budget left and overdue mandatory training; a mandatory course is not booked through the agent and an optional one is blocked while a mandatory course is overdue",
+ "passed": true,
+ "final_status": "done",
+ "protocol_error": null,
+ "steps": [
+  {
+   "i": 0,
+   "cmd": "start",
+   "args": [
+    "--thread",
+    "LRN-01-c5d954",
+    "--user",
+    "E1014",
+    "--message",
+    "Hi. Am I behind on any mandatory training? If I am, please book the refresher for me. And how much of my learning budget is left for this year?"
+   ],
+   "seconds": 4.62,
+   "status": "done",
+   "message": "Yes — you are behind on mandatory training.\n\n- Overdue mandatory course: **LD-106 — Basic HSE Awareness** (due **2026-07-02**)\n- I can’t book it here because **mandatory courses are booked by HR, not through this system**. Please ask HR to schedule the refresher.\n\nLearning budget left this year: **QAR 5,000** out of **QAR 6,000** annual budget.",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    1,
+    2,
+    3
+   ],
+   "decision": null
+  },
+  {
+   "i": 1,
+   "cmd": "say",
+   "args": [
+    "--thread",
+    "LRN-01-c5d954",
+    "--user",
+    "E1014",
+    "--message",
+    "OK, understood. Then can you get me onto the Risk Assessment workshop (LD-109) in November instead?"
+   ],
+   "seconds": 2.47,
+   "status": "done",
+   "message": "I can’t propose **LD-109 — Risk Assessment (HIRA) Workshop** yet because you have an overdue mandatory course:\n\n- **LD-106 — Basic HSE Awareness**\n\nPeopleHub says mandatory courses are overdue, so this workshop is blocked for now. Once **LD-106** is cleared by HR, I can help with **LD-109** in November.",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    4
+   ],
+   "decision": null
+  }
+ ],
+ "audit": [
+  {
+   "seq": 1,
+   "function": "get_learning_profile",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1014\", \"actor\": \"E1014\"}",
+   "actor": "E1014",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1014\", \"name\": \"Vikram Varma\", \"grade\": 5, \"line_manager_id\": \"E1008\", \"budget_year\": 2026, \"grade_band\": \"G4-G6\", \"annual_budget_qar\": 6000, \"spent_this_year_qar\": 1000, \"remaining_budget_qar\": 5000, \"completed\": [{\"course_id\": \"LD-101\", \"title\": \"Preventive Maintenance Planning Fundamentals\", \"completed_on\": \"2022-09-13\", \"fee_qar\": 900, \"mandatory\": false}, {\"course_id\": \"LD-102\", \"title\": \"CMMS Essentials for Maintenance Teams\", \"completed_on\": \"2023-04-18\", \"fee_qar\": 400, \"mandatory\": false}, {\"course_id\": \"LD-127\", \"title\": \"Excel for Work: Formulas and Tables\", \"completed_on\": \"2024-03-12\", \"fee_qar\": 300, \"mandatory\": false}, {\"course_id\": \"LD-103\", \"title\": \"Root Cause Analysis: 5-Whys and Fishbone\", \"completed_on\": \"2024-05-08\", \"fee_qar\": 1200, \"mandatory\": false}, {\"course_id\": \"LD-107\", \"title\": \"Fire Safety and Emergency Response\", \"completed_on\": \"2025-02-11\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"completed_on\": \"2025-07-02\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-118\", \"title\": \"Cybersecurity Awareness\", \"completed_on\": \"2026-04-08\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-125\", \"title\": \"Presenting with Confidence\", \"completed_on\": \"2026-05-19\", \"fee_qar\": 1000, \"mandatory\": false}], \"overdue_mandatory\": [{\"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"due_date\": \"2026-07-02\", \"last_completed\": \"2025-07-02\"}], \"enrolments\": []}"
+  },
+  {
+   "seq": 2,
+   "function": "find_course",
+   "kind": "read",
+   "args": "{\"query\": \"LD-106\", \"actor\": \"E1014\"}",
+   "actor": "E1014",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"courses\": [{\"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"status\": \"Active\", \"fee_qar\": 0, \"mandatory\": true}]}"
+  },
+  {
+   "seq": 3,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1014\", \"course_id\": \"LD-106\", \"actor\": \"E1014\"}",
+   "actor": "E1014",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1014\", \"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"fee_qar\": 0, \"mandatory\": true, \"eligible\": false, \"reasons\": [{\"code\": \"MANDATORY_BOOKED_BY_HR\", \"detail\": \"Mandatory courses are booked by HR, not through this system.\"}], \"approvals_needed\": []}"
+  },
+  {
+   "seq": 4,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1014\", \"course_id\": \"LD-109\", \"actor\": \"E1014\"}",
+   "actor": "E1014",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1014\", \"course_id\": \"LD-109\", \"title\": \"Risk Assessment (HIRA) Workshop\", \"fee_qar\": 1300, \"mandatory\": false, \"eligible\": false, \"reasons\": [{\"code\": \"MANDATORY_OVERDUE\", \"detail\": \"Overdue mandatory course(s): LD-106.\"}], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  }
+ ],
+ "write_tables": {
+  "enrolments": [],
+  "learning_plans": []
+ },
+ "checks": [
+  {
+   "name": "final_status",
+   "ok": true,
+   "detail": "got 'done', wanted 'done'"
+  },
+  {
+   "name": "no change to any write table",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "approval requests",
+   "ok": true,
+   "detail": "0 requests, wanted 0"
+  },
+  {
+   "name": "failed API calls",
+   "ok": true,
+   "detail": "0 failed: []"
+  },
+  {
+   "name": "never calls request_enrolment",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "never calls cancel_enrolment",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "never calls save_learning_plan",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "reply mentions 're:5,?000'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "reply mentions 're:LD-106|Basic HSE'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "reply mentions one of ['overdue', 'mandatory', 'behind']",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "reply does not say \"re:(?<!not )(?<!nothing )(?<!n't )(?<!n’t )(?<!never )(you are|you're|you have been|you've been|I have|I've|has been|have been) (now |already |successfully )?(booked|enrolled|registered|signed up)\"",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "violations": [],
+ "notes": []
+}

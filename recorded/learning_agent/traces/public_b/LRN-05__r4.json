@@ -1,0 +1,193 @@
+{
+ "format": 1,
+ "scenario": "LRN-05",
+ "run": 4,
+ "user": "E1079",
+ "thread": "LRN-05-a8ab05",
+ "title": "Saving a draft learning plan needs no approval: the agent writes it straight away and asks nobody",
+ "passed": true,
+ "final_status": "done",
+ "protocol_error": null,
+ "steps": [
+  {
+   "i": 0,
+   "cmd": "start",
+   "args": [
+    "--thread",
+    "LRN-05-a8ab05",
+    "--user",
+    "E1079",
+    "--message",
+    "Could you put together a learning plan for me for the next two quarters? I want to move from service desk work towards network troubleshooting. Just save it as a draft, I'll show my manager next week."
+   ],
+   "seconds": 5.96,
+   "status": "done",
+   "message": "Saved as a draft learning plan for E1079.\n\nIncluded:\n- LD-120 — Endpoint and Network Troubleshooting, QAR 1600\n- Earliest session: LD-120-S1, 2026-11-12 to 2026-11-15, Doha HQ, seats left 10\n\nBudget note: remaining budget is QAR 4600, so this fits.\n\nDraft status: saved.",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "decision": null
+  }
+ ],
+ "audit": [
+  {
+   "seq": 1,
+   "function": "get_today",
+   "kind": "read",
+   "args": "{\"actor\": \"E1079\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"today\": \"2026-10-16\", \"weekday\": \"Friday\", \"working_week\": \"Sunday to Thursday\"}"
+  },
+  {
+   "seq": 2,
+   "function": "get_learning_profile",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1079\", \"actor\": \"E1079\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1079\", \"name\": \"Mohammed Hassan\", \"grade\": 4, \"line_manager_id\": \"E1078\", \"budget_year\": 2026, \"grade_band\": \"G4-G6\", \"annual_budget_qar\": 6000, \"spent_this_year_qar\": 1400, \"remaining_budget_qar\": 4600, \"completed\": [{\"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"completed_on\": \"2026-01-12\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-107\", \"title\": \"Fire Safety and Emergency Response\", \"completed_on\": \"2026-01-13\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-118\", \"title\": \"Cybersecurity Awareness\", \"completed_on\": \"2026-01-14\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-119\", \"title\": \"IT Service Desk and Ticket Handling\", \"completed_on\": \"2026-02-26\", \"fee_qar\": 1100, \"mandatory\": false}, {\"course_id\": \"LD-127\", \"title\": \"Excel for Work: Formulas and Tables\", \"completed_on\": \"2026-04-08\", \"fee_qar\": 300, \"mandatory\": false}], \"overdue_mandatory\": [], \"enrolments\": []}"
+  },
+  {
+   "seq": 3,
+   "function": "find_course",
+   "kind": "read",
+   "args": "{\"query\": \"network troubleshooting\", \"actor\": \"E1079\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"courses\": [{\"course_id\": \"LD-120\", \"title\": \"Endpoint and Network Troubleshooting\", \"status\": \"Active\", \"fee_qar\": 1600, \"mandatory\": false}]}"
+  },
+  {
+   "seq": 4,
+   "function": "find_course",
+   "kind": "read",
+   "args": "{\"query\": \"network\", \"actor\": \"E1079\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"courses\": [{\"course_id\": \"LD-120\", \"title\": \"Endpoint and Network Troubleshooting\", \"status\": \"Active\", \"fee_qar\": 1600, \"mandatory\": false}]}"
+  },
+  {
+   "seq": 5,
+   "function": "find_course",
+   "kind": "read",
+   "args": "{\"query\": \"troubleshooting\", \"actor\": \"E1079\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"courses\": [{\"course_id\": \"LD-120\", \"title\": \"Endpoint and Network Troubleshooting\", \"status\": \"Active\", \"fee_qar\": 1600, \"mandatory\": false}]}"
+  },
+  {
+   "seq": 6,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1079\", \"course_id\": \"LD-120\", \"actor\": \"E1079\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1079\", \"course_id\": \"LD-120\", \"title\": \"Endpoint and Network Troubleshooting\", \"fee_qar\": 1600, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1078\"}]}"
+  },
+  {
+   "seq": 7,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-120\", \"from_date\": \"2026-10-16\", \"actor\": \"E1079\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-120\", \"sessions\": [{\"session_id\": \"LD-120-S1\", \"start_date\": \"2026-11-12\", \"end_date\": \"2026-11-15\", \"delivery\": \"Classroom\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 10}, {\"session_id\": \"LD-120-S2\", \"start_date\": \"2026-12-03\", \"end_date\": \"2026-12-06\", \"delivery\": \"Classroom\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 9}, {\"session_id\": \"LD-120-S3\", \"start_date\": \"2026-12-24\", \"end_date\": \"2026-12-27\", \"delivery\": \"Classroom\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 8}]}"
+  },
+  {
+   "seq": 8,
+   "function": "save_learning_plan",
+   "kind": "write",
+   "args": "{\"employee_id\": \"E1079\", \"plan_text\": \"Draft learning plan for the next two quarters to move from service desk work towards network troubleshooting:\\n1) LD-120 \\u2014 Endpoint and Network Troubleshooting (Active, QAR 1600). Recommended first priority.\\n   - Earliest available session: LD-120-S1, 2026-11-12 to 2026-11-15, Classroom, Doha HQ, seats left 10.\\n2) Build on troubleshooting skills with practical application at work after LD-120.\\n3) Review progress with line manager and adjust the second-quarter plan based on operational needs and any additional network-focused courses available in PeopleHub.\\n\\nBudget check: remaining annual budget is QAR 4600, so LD-120 fits within budget.\", \"actor\": \"E1079\", \"idempotency_key\": \"lc-85736c9f7682139db6ca7231e77155e2\"}",
+   "actor": "E1079",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"plan_id\": 1, \"employee_id\": \"E1079\", \"status\": \"draft\"}"
+  }
+ ],
+ "write_tables": {
+  "enrolments": [],
+  "learning_plans": [
+   {
+    "plan_id": 1,
+    "employee_id": "E1079",
+    "plan_text": "Draft learning plan for the next two quarters to move from service desk work towards network troubleshooting:\n1) LD-120 — Endpoint and Network Troubleshooting (Active, QAR 1600). Recommended first priority.\n   - Earliest available session: LD-120-S1, 2026-11-12 to 2026-11-15, Classroom, Doha HQ, seats left 10.\n2) Build on troubleshooting skills with practical application at work after LD-120.\n3) Review progress with line manager and adjust the second-quarter plan based on operational needs and any additional network-focused courses available in PeopleHub.\n\nBudget check: remaining annual budget is QAR 4600, so LD-120 fits within budget.",
+    "status": "draft",
+    "created_by": "E1079",
+    "created_on": "2026-10-16"
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "final_status",
+   "ok": true,
+   "detail": "got 'done', wanted 'done'"
+  },
+  {
+   "name": "effect learning_plans {'employee_id': 'E1079', 'status': 'draft', 'plan_text': '$NOTNULL'}",
+   "ok": true,
+   "detail": "found 1, wanted 1"
+  },
+  {
+   "name": "no change to enrolments",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "approval requests",
+   "ok": true,
+   "detail": "0 requests, wanted 0"
+  },
+  {
+   "name": "failed API calls",
+   "ok": true,
+   "detail": "0 failed: []"
+  },
+  {
+   "name": "never calls request_enrolment",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "never calls cancel_enrolment",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "calls to save_learning_plan ",
+   "ok": true,
+   "detail": "1 calls, wanted 1"
+  },
+  {
+   "name": "reply mentions one of ['draft', 'saved']",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "violations": [],
+ "notes": []
+}

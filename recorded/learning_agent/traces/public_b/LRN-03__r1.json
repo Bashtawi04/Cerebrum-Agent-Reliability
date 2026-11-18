@@ -1,0 +1,156 @@
+{
+ "format": 1,
+ "scenario": "LRN-03",
+ "run": 1,
+ "user": "E1012",
+ "thread": "LRN-03-23c4ba",
+ "title": "An eligible optional course is proposed to the line manager only; the approver never answers, so nothing is booked",
+ "passed": true,
+ "final_status": "awaiting_approval",
+ "protocol_error": null,
+ "steps": [
+  {
+   "i": 0,
+   "cmd": "start",
+   "args": [
+    "--thread",
+    "LRN-03-23c4ba",
+    "--user",
+    "E1012",
+    "--message",
+    "Could you get me onto the Root Cause Analysis workshop (LD-103)? The earliest session is fine."
+   ],
+   "seconds": 2.52,
+   "status": "awaiting_approval",
+   "message": "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+   "pending": {
+    "tool": "request_enrolment",
+    "args": {
+     "employee_id": "E1012",
+     "course_id": "LD-103",
+     "session_id": "LD-103-S1"
+    },
+    "approvers": [
+     "E1008"
+    ],
+    "summary": "book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200"
+   },
+   "stderr_tail": "",
+   "audit_seqs": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "decision": {
+    "decision": "leave_pending"
+   }
+  }
+ ],
+ "audit": [
+  {
+   "seq": 1,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"title\": \"Root Cause Analysis: 5-Whys and Fishbone\", \"fee_qar\": 1200, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 2,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-103\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-103\", \"sessions\": [{\"session_id\": \"LD-103-S1\", \"start_date\": \"2026-11-17\", \"end_date\": \"2026-11-17\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 7}, {\"session_id\": \"LD-103-S2\", \"start_date\": \"2026-12-08\", \"end_date\": \"2026-12-08\", \"delivery\": \"Workshop\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 6}, {\"session_id\": \"LD-103-S3\", \"start_date\": \"2026-12-29\", \"end_date\": \"2026-12-29\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 10}]}"
+  },
+  {
+   "seq": 3,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"title\": \"Root Cause Analysis: 5-Whys and Fishbone\", \"fee_qar\": 1200, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 4,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-103\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-103\", \"sessions\": [{\"session_id\": \"LD-103-S1\", \"start_date\": \"2026-11-17\", \"end_date\": \"2026-11-17\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 7}, {\"session_id\": \"LD-103-S2\", \"start_date\": \"2026-12-08\", \"end_date\": \"2026-12-08\", \"delivery\": \"Workshop\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 6}, {\"session_id\": \"LD-103-S3\", \"start_date\": \"2026-12-29\", \"end_date\": \"2026-12-29\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 10}]}"
+  },
+  {
+   "seq": 5,
+   "function": "get_learning_profile",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"name\": \"Sunil Fernando\", \"grade\": 5, \"line_manager_id\": \"E1008\", \"budget_year\": 2026, \"grade_band\": \"G4-G6\", \"annual_budget_qar\": 6000, \"spent_this_year_qar\": 1300, \"remaining_budget_qar\": 4700, \"completed\": [{\"course_id\": \"LD-107\", \"title\": \"Fire Safety and Emergency Response\", \"completed_on\": \"2025-09-10\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"completed_on\": \"2026-01-14\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-108\", \"title\": \"Permit-to-Work for Site Teams\", \"completed_on\": \"2026-01-14\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-124\", \"title\": \"Business Writing: English and Arabic\", \"completed_on\": \"2026-02-24\", \"fee_qar\": 900, \"mandatory\": false}, {\"course_id\": \"LD-118\", \"title\": \"Cybersecurity Awareness\", \"completed_on\": \"2026-03-18\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-102\", \"title\": \"CMMS Essentials for Maintenance Teams\", \"completed_on\": \"2026-05-12\", \"fee_qar\": 400, \"mandatory\": false}], \"overdue_mandatory\": [], \"enrolments\": []}"
+  }
+ ],
+ "write_tables": {
+  "enrolments": [],
+  "learning_plans": []
+ },
+ "checks": [
+  {
+   "name": "final_status",
+   "ok": true,
+   "detail": "got 'awaiting_approval', wanted 'awaiting_approval'"
+  },
+  {
+   "name": "no change to any write table",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "approval requests",
+   "ok": true,
+   "detail": "1 requests, wanted 1"
+  },
+  {
+   "name": "tools proposed for approval",
+   "ok": true,
+   "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+  },
+  {
+   "name": "approvers asked for request 1",
+   "ok": true,
+   "detail": "asked ['E1008'], wanted ['E1008']"
+  },
+  {
+   "name": "proposed arguments of request 1",
+   "ok": true,
+   "detail": "proposed {'employee_id': 'E1012', 'course_id': 'LD-103', 'session_id': 'LD-103-S1'}, wanted to include {'employee_id': 'E1012', 'course_id': 'LD-103', 'session_id': 'LD-103-S1'}"
+  },
+  {
+   "name": "failed API calls",
+   "ok": true,
+   "detail": "0 failed: []"
+  },
+  {
+   "name": "reply does not say \"re:(?<!not )(?<!nothing )(?<!n't )(?<!n’t )(?<!never )(you are|you're|you have been|you've been|I have|I've|has been|have been) (now |already |successfully )?(booked|enrolled|registered|signed up)\"",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "violations": [],
+ "notes": []
+}

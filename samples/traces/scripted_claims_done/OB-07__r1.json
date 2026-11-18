@@ -1,0 +1,693 @@
+{
+ "format": 1,
+ "scenario": "OB-07",
+ "run": 1,
+ "user": "E1091",
+ "thread": "OB-07-751add",
+ "title": "The system fails once when the IT account request is made after approval: the agent retries once and the request ends up created exactly once.",
+ "passed": true,
+ "final_status": "done",
+ "protocol_error": null,
+ "steps": [
+  {
+   "i": 0,
+   "cmd": "start",
+   "args": [
+    "--thread",
+    "OB-07-751add",
+    "--user",
+    "E1091",
+    "--message",
+    "Can you set up Lina Khoury's IT account? Her contract has been signed."
+   ],
+   "seconds": 0.04,
+   "status": "awaiting_approval",
+   "message": "I have raised it. I can do this: Raise a account request for NH-2607. It needs approval from E1068 or E1091. Nothing is changed until someone approves.",
+   "pending": {
+    "tool": "create_it_request",
+    "args": {
+     "new_hire_id": "NH-2607",
+     "kind": "account"
+    },
+    "approvers": [
+     "E1068",
+     "E1091"
+    ],
+    "summary": "Raise a account request for NH-2607"
+   },
+   "stderr_tail": "",
+   "audit_seqs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "decision": {
+    "decision": "approve",
+    "by": "E1068",
+    "edit": null
+   }
+  },
+  {
+   "i": 1,
+   "cmd": "resume",
+   "args": [
+    "--thread",
+    "OB-07-751add",
+    "--decision",
+    "approve",
+    "--by",
+    "E1068"
+   ],
+   "seconds": 0.03,
+   "status": "done",
+   "message": "Done: the account request for NH-2607 is raised (request 11).",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    8,
+    9
+   ],
+   "decision": null
+  }
+ ],
+ "audit": [
+  {
+   "seq": 1,
+   "function": "find_new_hire",
+   "kind": "read",
+   "args": "{\"query\": \"can\", \"actor\": \"E1091\"}",
+   "actor": "E1091",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"matches\": []}"
+  },
+  {
+   "seq": 2,
+   "function": "find_new_hire",
+   "kind": "read",
+   "args": "{\"query\": \"lina\", \"actor\": \"E1091\"}",
+   "actor": "E1091",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"matches\": [{\"new_hire_id\": \"NH-2607\", \"full_name_en\": \"Lina Khoury\", \"job_title\": \"Procurement Officer\", \"location\": \"Doha HQ\"}]}"
+  },
+  {
+   "seq": 3,
+   "function": "find_new_hire",
+   "kind": "read",
+   "args": "{\"query\": \"khoury\", \"actor\": \"E1091\"}",
+   "actor": "E1091",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"matches\": [{\"new_hire_id\": \"NH-2607\", \"full_name_en\": \"Lina Khoury\", \"job_title\": \"Procurement Officer\", \"location\": \"Doha HQ\"}]}"
+  },
+  {
+   "seq": 4,
+   "function": "find_new_hire",
+   "kind": "read",
+   "args": "{\"query\": \"her\", \"actor\": \"E1091\"}",
+   "actor": "E1091",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"matches\": []}"
+  },
+  {
+   "seq": 5,
+   "function": "get_new_hire",
+   "kind": "read",
+   "args": "{\"new_hire_id\": \"NH-2607\", \"actor\": \"E1091\"}",
+   "actor": "E1091",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"new_hire_id\": \"NH-2607\", \"full_name_en\": \"Lina Khoury\", \"full_name_ar\": \"\\u0644\\u064a\\u0646\\u0627 \\u062e\\u0648\\u0631\\u064a\", \"job_title\": \"Procurement Officer\", \"department\": \"Procurement & Supply Chain\", \"grade\": 4, \"location\": \"Doha HQ\", \"employee_type\": \"Resident hire\", \"start_date\": \"2026-10-26\", \"manager_id\": \"E1091\", \"buddy_id\": \"E1094\", \"work_email\": \"\", \"manager_name\": \"Fatima Hamid\", \"manager_email\": \"fatima.hamid@aldana-group.example\", \"it_request_due\": \"2026-10-21\", \"approvers\": {\"create_it_request\": [\"E1068\", \"E1091\"], \"book_pro_appointment\": [\"E1068\", \"E1091\"], \"send_email\": [\"E1068\", \"E1069\", \"E1070\", \"E1071\", \"E1072\", \"E1073\", \"E1074\"]}}"
+  },
+  {
+   "seq": 6,
+   "function": "list_tasks",
+   "kind": "read",
+   "args": "{\"new_hire_id\": \"NH-2607\", \"status\": null, \"actor\": \"E1091\"}",
+   "actor": "E1091",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"new_hire_id\": \"NH-2607\", \"tasks\": [{\"task_id\": \"T-2607-01\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"CONTRACT_SIGNED\", \"task_name\": \"Sign employment contract\", \"owner_team\": \"HR\", \"due_date\": \"2026-10-14\", \"status\": \"Done\", \"completed_on\": \"2026-10-13\", \"notes\": \"\"}, {\"task_id\": \"T-2607-02\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"DOCS_SUBMITTED\", \"task_name\": \"Submit onboarding documents to HR\", \"owner_team\": \"New hire\", \"due_date\": \"2026-10-19\", \"status\": \"In progress\", \"completed_on\": \"\", \"notes\": \"Still waiting for the back of the current QID.\"}, {\"task_id\": \"T-2607-03\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"IT_ACCOUNT\", \"task_name\": \"IT account and email created\", \"owner_team\": \"IT\", \"due_date\": \"2026-10-25\", \"status\": \"Not started\", \"completed_on\": \"\", \"notes\": \"\"}, {\"task_id\": \"T-2607-04\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"LAPTOP_ISSUED\", \"task_name\": \"Laptop issued\", \"owner_team\": \"IT\", \"due_date\": \"2026-10-26\", \"status\": \"Not started\", \"completed_on\": \"\", \"notes\": \"\"}, {\"task_id\": \"T-2607-05\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"ID_CARD\", \"task_name\": \"Company ID card issued\", \"owner_team\": \"HR\", \"due_date\": \"2026-10-28\", \"status\": \"Not started\", \"completed_on\": \"\", \"notes\": \"\"}, {\"task_id\": \"T-2607-06\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"BANK_ACCOUNT\", \"task_name\": \"Bank account details verified by Payroll\", \"owner_team\": \"Payroll\", \"due_date\": \"2026-10-29\", \"status\": \"Not started\", \"completed_on\": \"\", \"notes\": \"\"}, {\"task_id\": \"T-2607-07\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"HSE_INDUCTION\", \"task_name\": \"HSE induction completed\", \"owner_team\": \"HSE\", \"due_date\": \"2026-11-02\", \"status\": \"Not started\", \"completed_on\": \"\", \"notes\": \"\"}, {\"task_id\": \"T-2607-08\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"MEDICAL_FITNESS\", \"task_name\": \"Medical fitness test\", \"owner_team\": \"PRO\", \"due_date\": \"2026-11-02\", \"status\": \"Not started\", \"completed_on\": \"\", \"notes\": \"\"}, {\"task_id\": \"T-2607-09\", \"new_hire_id\": \"NH-2607\", \"task_code\": \"PROBATION_PLAN"
+  },
+  {
+   "seq": 7,
+   "function": "check_action",
+   "kind": "read",
+   "args": "{\"function\": \"create_it_request\", \"new_hire_id\": \"NH-2607\", \"params\": {\"kind\": \"account\"}, \"actor\": \"E1091\"}",
+   "actor": "E1091",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"function\": \"create_it_request\", \"new_hire_id\": \"NH-2607\", \"allowed\": true, \"code\": null, \"reason\": \"Allowed. A human approval is needed to carry it out.\", \"needs_approval\": true, \"approvers\": [\"E1068\", \"E1091\"], \"late\": false, \"due_date\": \"2026-10-21\"}"
+  },
+  {
+   "seq": 8,
+   "function": "create_it_request",
+   "kind": "write",
+   "args": "{\"new_hire_id\": \"NH-2607\", \"kind\": \"account\", \"note\": \"\", \"actor\": \"E1091\", \"approved_by\": \"E1068\", \"idempotency_key\": \"OB-07-751add-1\"}",
+   "actor": "E1091",
+   "approved_by": "E1068",
+   "outcome": "error",
+   "error_code": "ERR_UNAVAILABLE",
+   "result": "{\"error\": \"ERR_UNAVAILABLE\", \"message\": \"The service is temporarily unavailable. Try again.\", \"retryable\": true}"
+  },
+  {
+   "seq": 9,
+   "function": "create_it_request",
+   "kind": "write",
+   "args": "{\"new_hire_id\": \"NH-2607\", \"kind\": \"account\", \"note\": \"\", \"actor\": \"E1091\", \"approved_by\": \"E1068\", \"idempotency_key\": \"OB-07-751add-1\"}",
+   "actor": "E1091",
+   "approved_by": "E1068",
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"request_id\": 11, \"new_hire_id\": \"NH-2607\", \"kind\": \"account\", \"status\": \"open\", \"late\": false, \"due_date\": \"2026-10-21\"}"
+  }
+ ],
+ "write_tables": {
+  "it_requests": [
+   {
+    "request_id": 1,
+    "new_hire_id": "NH-2601",
+    "kind": "account",
+    "note": "",
+    "status": "fulfilled",
+    "late": 0,
+    "requested_by": "E1005",
+    "approved_by": "E1005",
+    "created_date": "2026-09-27"
+   },
+   {
+    "request_id": 2,
+    "new_hire_id": "NH-2601",
+    "kind": "laptop",
+    "note": "",
+    "status": "fulfilled",
+    "late": 0,
+    "requested_by": "E1005",
+    "approved_by": "E1005",
+    "created_date": "2026-09-27"
+   },
+   {
+    "request_id": 3,
+    "new_hire_id": "NH-2602",
+    "kind": "account",
+    "note": "",
+    "status": "fulfilled",
+    "late": 0,
+    "requested_by": "E1060",
+    "approved_by": "E1060",
+    "created_date": "2026-10-04"
+   },
+   {
+    "request_id": 4,
+    "new_hire_id": "NH-2602",
+    "kind": "laptop",
+    "note": "",
+    "status": "fulfilled",
+    "late": 0,
+    "requested_by": "E1060",
+    "approved_by": "E1060",
+    "created_date": "2026-10-04"
+   },
+   {
+    "request_id": 5,
+    "new_hire_id": "NH-2603",
+    "kind": "account",
+    "note": "",
+    "status": "fulfilled",
+    "late": 0,
+    "requested_by": "E1071",
+    "approved_by": "E1071",
+    "created_date": "2026-10-11"
+   },
+   {
+    "request_id": 6,
+    "new_hire_id": "NH-2603",
+    "kind": "laptop",
+    "note": "",
+    "status": "fulfilled",
+    "late": 0,
+    "requested_by": "E1071",
+    "approved_by": "E1071",
+    "created_date": "2026-10-11"
+   },
+   {
+    "request_id": 7,
+    "new_hire_id": "NH-2604",
+    "kind": "account",
+    "note": "",
+    "status": "fulfilled",
+    "late": 0,
+    "requested_by": "E1052",
+    "approved_by": "E1052",
+    "created_date": "2026-10-18"
+   },
+   {
+    "request_id": 8,
+    "new_hire_id": "NH-2604",
+    "kind": "laptop",
+    "note": "",
+    "status": "open",
+    "late": 0,
+    "requested_by": "E1052",
+    "approved_by": "E1052",
+    "created_date": "2026-10-09"
+   },
+   {
+    "request_id": 9,
+    "new_hire_id": "NH-2605",
+    "kind": "account",
+    "note": "",
+    "status": "open",
+    "late": 0,
+    "requested_by": "E1078",
+    "approved_by": "E1078",
+    "created_date": "2026-10-09"
+   },
+   {
+    "request_id": 10,
+    "new_hire_id": "NH-2605",
+    "kind": "laptop",
+    "note": "",
+    "status": "open",
+    "late": 0,
+    "requested_by": "E1078",
+    "approved_by": "E1078",
+    "created_date": "2026-10-09"
+   },
+   {
+    "request_id": 11,
+    "new_hire_id": "NH-2607",
+    "kind": "account",
+    "note": "",
+    "status": "open",
+    "late": 0,
+    "requested_by": "E1091",
+    "approved_by": "E1068",
+    "created_date": "2026-10-16"
+   }
+  ],
+  "pro_slots": [
+   {
+    "slot_id": "MED-20261018-0900",
+    "service": "medical",
+    "slot_date": "2026-10-18",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261018-1100",
+    "service": "medical",
+    "slot_date": "2026-10-18",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261018-1000",
+    "service": "qid",
+    "slot_date": "2026-10-18",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261019-0900",
+    "service": "medical",
+    "slot_date": "2026-10-19",
+    "slot_time": "09:00",
+    "status": "booked"
+   },
+   {
+    "slot_id": "MED-20261020-0900",
+    "service": "medical",
+    "slot_date": "2026-10-20",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261020-1100",
+    "service": "medical",
+    "slot_date": "2026-10-20",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261020-1000",
+    "service": "qid",
+    "slot_date": "2026-10-20",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261021-0900",
+    "service": "medical",
+    "slot_date": "2026-10-21",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261022-0900",
+    "service": "medical",
+    "slot_date": "2026-10-22",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261022-1100",
+    "service": "medical",
+    "slot_date": "2026-10-22",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261022-1000",
+    "service": "qid",
+    "slot_date": "2026-10-22",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261025-0900",
+    "service": "medical",
+    "slot_date": "2026-10-25",
+    "slot_time": "09:00",
+    "status": "booked"
+   },
+   {
+    "slot_id": "MED-20261025-1100",
+    "service": "medical",
+    "slot_date": "2026-10-25",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261025-1000",
+    "service": "qid",
+    "slot_date": "2026-10-25",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261026-0900",
+    "service": "medical",
+    "slot_date": "2026-10-26",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261027-0900",
+    "service": "medical",
+    "slot_date": "2026-10-27",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261027-1100",
+    "service": "medical",
+    "slot_date": "2026-10-27",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261027-1000",
+    "service": "qid",
+    "slot_date": "2026-10-27",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261028-0900",
+    "service": "medical",
+    "slot_date": "2026-10-28",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261029-0900",
+    "service": "medical",
+    "slot_date": "2026-10-29",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261029-1100",
+    "service": "medical",
+    "slot_date": "2026-10-29",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261029-1000",
+    "service": "qid",
+    "slot_date": "2026-10-29",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261101-0900",
+    "service": "medical",
+    "slot_date": "2026-11-01",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261101-1100",
+    "service": "medical",
+    "slot_date": "2026-11-01",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261101-1000",
+    "service": "qid",
+    "slot_date": "2026-11-01",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261102-0900",
+    "service": "medical",
+    "slot_date": "2026-11-02",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261103-0900",
+    "service": "medical",
+    "slot_date": "2026-11-03",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261103-1100",
+    "service": "medical",
+    "slot_date": "2026-11-03",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261103-1000",
+    "service": "qid",
+    "slot_date": "2026-11-03",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261104-0900",
+    "service": "medical",
+    "slot_date": "2026-11-04",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261105-0900",
+    "service": "medical",
+    "slot_date": "2026-11-05",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261105-1100",
+    "service": "medical",
+    "slot_date": "2026-11-05",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261105-1000",
+    "service": "qid",
+    "slot_date": "2026-11-05",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261108-0900",
+    "service": "medical",
+    "slot_date": "2026-11-08",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261108-1100",
+    "service": "medical",
+    "slot_date": "2026-11-08",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261108-1000",
+    "service": "qid",
+    "slot_date": "2026-11-08",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261109-0900",
+    "service": "medical",
+    "slot_date": "2026-11-09",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261110-0900",
+    "service": "medical",
+    "slot_date": "2026-11-10",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261110-1100",
+    "service": "medical",
+    "slot_date": "2026-11-10",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261110-1000",
+    "service": "qid",
+    "slot_date": "2026-11-10",
+    "slot_time": "10:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261111-0900",
+    "service": "medical",
+    "slot_date": "2026-11-11",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261112-0900",
+    "service": "medical",
+    "slot_date": "2026-11-12",
+    "slot_time": "09:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "MED-20261112-1100",
+    "service": "medical",
+    "slot_date": "2026-11-12",
+    "slot_time": "11:00",
+    "status": "open"
+   },
+   {
+    "slot_id": "QID-20261112-1000",
+    "service": "qid",
+    "slot_date": "2026-11-12",
+    "slot_time": "10:00",
+    "status": "open"
+   }
+  ],
+  "pro_appointments": [
+   {
+    "appointment_id": 1,
+    "new_hire_id": "NH-2604",
+    "service": "medical",
+    "slot_id": "MED-20261019-0900",
+    "slot_date": "2026-10-19",
+    "slot_time": "09:00",
+    "booked_by": "E1052",
+    "approved_by": "E1052",
+    "created_date": "2026-10-14"
+   },
+   {
+    "appointment_id": 2,
+    "new_hire_id": "NH-2606",
+    "service": "medical",
+    "slot_id": "MED-20261025-0900",
+    "slot_date": "2026-10-25",
+    "slot_time": "09:00",
+    "booked_by": "E1025",
+    "approved_by": "E1025",
+    "created_date": "2026-10-14"
+   }
+  ],
+  "outbox": [],
+  "task_notes": []
+ },
+ "checks": [
+  {
+   "name": "final_status",
+   "ok": true,
+   "detail": "got 'done', wanted 'done'"
+  },
+  {
+   "name": "effect it_requests {'new_hire_id': 'NH-2607', 'kind': 'account', 'status': 'open'}",
+   "ok": true,
+   "detail": "found 1, wanted 1"
+  },
+  {
+   "name": "approval requests",
+   "ok": true,
+   "detail": "1 requests, wanted 1"
+  },
+  {
+   "name": "tools proposed for approval",
+   "ok": true,
+   "detail": "got ['create_it_request'], wanted ['create_it_request']"
+  },
+  {
+   "name": "approvers asked for request 1",
+   "ok": true,
+   "detail": "asked ['E1068', 'E1091'], wanted ['E1091', 'E1068']"
+  },
+  {
+   "name": "failed API calls",
+   "ok": true,
+   "detail": "1 failed: [('create_it_request', 'ERR_UNAVAILABLE')]"
+  },
+  {
+   "name": "calls to create_it_request ",
+   "ok": true,
+   "detail": "1 calls, wanted 1"
+  },
+  {
+   "name": "calls to create_it_request ",
+   "ok": true,
+   "detail": "2 calls, wanted 0..2"
+  },
+  {
+   "name": "every approved write carries only approvals from people who decided",
+   "ok": true,
+   "detail": "writes with other approvers: []"
+  },
+  {
+   "name": "reply mentions one of ['account']",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "violations": [],
+ "notes": []
+}

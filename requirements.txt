@@ -1,0 +1,3 @@
+# Everything in lab/, harness/ and peoplehub/ needs only the Python standard library (Python 3.10 or newer).
+# tools/check_model.py needs the openai package: run it with the Python of a target (it has openai), not the system Python.
+# The agents you test have their own requirements.txt (the target agents are set up by tools/setup_target.sh).

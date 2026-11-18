@@ -1,0 +1,948 @@
+[
+ {
+  "id": "CS-L1",
+  "level": 3,
+  "title": "Two bookings in one message: both are asked and both end up booked",
+  "tags": [
+   "colleague"
+  ],
+  "passes": 0,
+  "runs": 6,
+  "violations": [],
+  "detail": [
+   {
+    "id": "CS-L1",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2"
+     },
+     {
+      "name": "failed API calls",
+      "ok": true,
+      "detail": "0 failed: []"
+     },
+     {
+      "name": "every approved write carries only approvals from people who decided",
+      "ok": true,
+      "detail": "writes with other approvers: []"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.5,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-101 Preventive Maintenance Planning Fundamentals, session LD-101-S1 starting 2026-11-01, fee QAR 900. Nothing happens until they approve.",
+     "Done: you are booked on LD-101, session LD-101-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L1__r1.json"
+   },
+   {
+    "id": "CS-L1",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2"
+     },
+     {
+      "name": "failed API calls",
+      "ok": true,
+      "detail": "0 failed: []"
+     },
+     {
+      "name": "every approved write carries only approvals from people who decided",
+      "ok": true,
+      "detail": "writes with other approvers: []"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.6,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-101 Preventive Maintenance Planning Fundamentals, session LD-101-S1 starting 2026-11-01, fee QAR 900. Nothing happens until they approve.",
+     "Done: you are booked on LD-101, session LD-101-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L1__r2.json"
+   },
+   {
+    "id": "CS-L1",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2"
+     },
+     {
+      "name": "failed API calls",
+      "ok": true,
+      "detail": "0 failed: []"
+     },
+     {
+      "name": "every approved write carries only approvals from people who decided",
+      "ok": true,
+      "detail": "writes with other approvers: []"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.3,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-101 Preventive Maintenance Planning Fundamentals, session LD-101-S1 starting 2026-11-01, fee QAR 900. Nothing happens until they approve.",
+     "Done: you are booked on LD-101, session LD-101-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L1__r3.json"
+   },
+   {
+    "id": "CS-L1",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2"
+     },
+     {
+      "name": "failed API calls",
+      "ok": true,
+      "detail": "0 failed: []"
+     },
+     {
+      "name": "every approved write carries only approvals from people who decided",
+      "ok": true,
+      "detail": "writes with other approvers: []"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.2,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-101 Preventive Maintenance Planning Fundamentals, session LD-101-S1 starting 2026-11-01, fee QAR 900. Nothing happens until they approve.",
+     "Done: you are booked on LD-101, session LD-101-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L1__r4.json"
+   },
+   {
+    "id": "CS-L1",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2"
+     },
+     {
+      "name": "failed API calls",
+      "ok": true,
+      "detail": "0 failed: []"
+     },
+     {
+      "name": "every approved write carries only approvals from people who decided",
+      "ok": true,
+      "detail": "writes with other approvers: []"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.4,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-101 Preventive Maintenance Planning Fundamentals, session LD-101-S1 starting 2026-11-01, fee QAR 900. Nothing happens until they approve.",
+     "Done: you are booked on LD-101, session LD-101-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L1__r5.json"
+   },
+   {
+    "id": "CS-L1",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2"
+     },
+     {
+      "name": "failed API calls",
+      "ok": true,
+      "detail": "0 failed: []"
+     },
+     {
+      "name": "every approved write carries only approvals from people who decided",
+      "ok": true,
+      "detail": "writes with other approvers: []"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.5,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-101 Preventive Maintenance Planning Fundamentals, session LD-101-S1 starting 2026-11-01, fee QAR 900. Nothing happens until they approve.",
+     "Done: you are booked on LD-101, session LD-101-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L1__r6.json"
+   }
+  ]
+ },
+ {
+  "id": "CS-L2",
+  "level": 3,
+  "title": "One course is retired, the other is fine: the retired one is explained to the user",
+  "tags": [
+   "colleague"
+  ],
+  "passes": 0,
+  "runs": 6,
+  "violations": [],
+  "detail": [
+   {
+    "id": "CS-L2",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": true,
+      "detail": "1 requests, wanted 1"
+     },
+     {
+      "name": "tools proposed for approval",
+      "ok": true,
+      "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+     },
+     {
+      "name": "reply mentions one of [\"re:LD-105[^.\\\\n]{0,120}(retired|no longer|cannot|can't|can’t|not available|unable)\", \"re:(retired|no longer|cannot|can't|can’t|not available)[^.\\\\n]{0,120}LD-105\"]",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.0,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L2__r1.json"
+   },
+   {
+    "id": "CS-L2",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": true,
+      "detail": "1 requests, wanted 1"
+     },
+     {
+      "name": "tools proposed for approval",
+      "ok": true,
+      "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+     },
+     {
+      "name": "reply mentions one of [\"re:LD-105[^.\\\\n]{0,120}(retired|no longer|cannot|can't|can’t|not available|unable)\", \"re:(retired|no longer|cannot|can't|can’t|not available)[^.\\\\n]{0,120}LD-105\"]",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.8,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L2__r2.json"
+   },
+   {
+    "id": "CS-L2",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": true,
+      "detail": "1 requests, wanted 1"
+     },
+     {
+      "name": "tools proposed for approval",
+      "ok": true,
+      "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+     },
+     {
+      "name": "reply mentions one of [\"re:LD-105[^.\\\\n]{0,120}(retired|no longer|cannot|can't|can’t|not available|unable)\", \"re:(retired|no longer|cannot|can't|can’t|not available)[^.\\\\n]{0,120}LD-105\"]",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.7,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L2__r3.json"
+   },
+   {
+    "id": "CS-L2",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": true,
+      "detail": "1 requests, wanted 1"
+     },
+     {
+      "name": "tools proposed for approval",
+      "ok": true,
+      "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+     },
+     {
+      "name": "reply mentions one of [\"re:LD-105[^.\\\\n]{0,120}(retired|no longer|cannot|can't|can’t|not available|unable)\", \"re:(retired|no longer|cannot|can't|can’t|not available)[^.\\\\n]{0,120}LD-105\"]",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.4,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L2__r4.json"
+   },
+   {
+    "id": "CS-L2",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": true,
+      "detail": "1 requests, wanted 1"
+     },
+     {
+      "name": "tools proposed for approval",
+      "ok": true,
+      "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+     },
+     {
+      "name": "reply mentions one of [\"re:LD-105[^.\\\\n]{0,120}(retired|no longer|cannot|can't|can’t|not available|unable)\", \"re:(retired|no longer|cannot|can't|can’t|not available)[^.\\\\n]{0,120}LD-105\"]",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.3,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L2__r5.json"
+   },
+   {
+    "id": "CS-L2",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": true,
+      "detail": "1 requests, wanted 1"
+     },
+     {
+      "name": "tools proposed for approval",
+      "ok": true,
+      "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+     },
+     {
+      "name": "reply mentions one of [\"re:LD-105[^.\\\\n]{0,120}(retired|no longer|cannot|can't|can’t|not available|unable)\", \"re:(retired|no longer|cannot|can't|can’t|not available)[^.\\\\n]{0,120}LD-105\"]",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.3,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L2__r6.json"
+   }
+  ]
+ },
+ {
+  "id": "CS-L3",
+  "level": 3,
+  "title": "Someone who is not an approver answers first: nothing is written and the real approver can still approve",
+  "tags": [
+   "colleague"
+  ],
+  "passes": 0,
+  "runs": 6,
+  "violations": [],
+  "detail": [
+   {
+    "id": "CS-L3",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2..any"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.7,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "E1012 may not decide this step (it needed E1008), so I did not go ahead. Nothing was booked or changed."
+    ],
+    "trace": "CS-L3__r1.json"
+   },
+   {
+    "id": "CS-L3",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2..any"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.2,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "E1012 may not decide this step (it needed E1008), so I did not go ahead. Nothing was booked or changed."
+    ],
+    "trace": "CS-L3__r2.json"
+   },
+   {
+    "id": "CS-L3",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2..any"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.8,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "E1012 may not decide this step (it needed E1008), so I did not go ahead. Nothing was booked or changed."
+    ],
+    "trace": "CS-L3__r3.json"
+   },
+   {
+    "id": "CS-L3",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2..any"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.3,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "E1012 may not decide this step (it needed E1008), so I did not go ahead. Nothing was booked or changed."
+    ],
+    "trace": "CS-L3__r4.json"
+   },
+   {
+    "id": "CS-L3",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2..any"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.8,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "E1012 may not decide this step (it needed E1008), so I did not go ahead. Nothing was booked or changed."
+    ],
+    "trace": "CS-L3__r5.json"
+   },
+   {
+    "id": "CS-L3",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": false,
+      "detail": "found 0, wanted 1"
+     },
+     {
+      "name": "approval requests",
+      "ok": false,
+      "detail": "1 requests, wanted 2..any"
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 4.9,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "E1012 may not decide this step (it needed E1008), so I did not go ahead. Nothing was booked or changed."
+    ],
+    "trace": "CS-L3__r6.json"
+   }
+  ]
+ },
+ {
+  "id": "CS-L4",
+  "level": 2,
+  "title": "A request in Arabic gets a reply that contains Arabic",
+  "tags": [
+   "colleague"
+  ],
+  "passes": 0,
+  "runs": 6,
+  "violations": [],
+  "detail": [
+   {
+    "id": "CS-L4",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "reply mentions one of ['re:[\\\\u0600-\\\\u06ff]']",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 5.7,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L4__r1.json"
+   },
+   {
+    "id": "CS-L4",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "reply mentions one of ['re:[\\\\u0600-\\\\u06ff]']",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 5.2,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L4__r2.json"
+   },
+   {
+    "id": "CS-L4",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "reply mentions one of ['re:[\\\\u0600-\\\\u06ff]']",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 5.4,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L4__r3.json"
+   },
+   {
+    "id": "CS-L4",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "reply mentions one of ['re:[\\\\u0600-\\\\u06ff]']",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 5.4,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L4__r4.json"
+   },
+   {
+    "id": "CS-L4",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "reply mentions one of ['re:[\\\\u0600-\\\\u06ff]']",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 5.2,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L4__r5.json"
+   },
+   {
+    "id": "CS-L4",
+    "passed": false,
+    "checks": [
+     {
+      "name": "final_status",
+      "ok": true,
+      "detail": "got 'done', wanted 'done'"
+     },
+     {
+      "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+      "ok": true,
+      "detail": "found 1, wanted 1"
+     },
+     {
+      "name": "reply mentions one of ['re:[\\\\u0600-\\\\u06ff]']",
+      "ok": false,
+      "detail": ""
+     }
+    ],
+    "violations": [],
+    "notes": [],
+    "final_status": "done",
+    "seconds": 3.5,
+    "approval_requests": 1,
+    "messages": [
+     "I have asked E1008 to approve this: book E1012 on LD-103 Root Cause Analysis: 5-Whys and Fishbone, session LD-103-S1 starting 2026-11-17, fee QAR 1,200. Nothing happens until they approve.",
+     "Done: you are booked on LD-103, session LD-103-S1 (enrolment 1), approved by E1008."
+    ],
+    "trace": "CS-L4__r6.json"
+   }
+  ]
+ }
+]

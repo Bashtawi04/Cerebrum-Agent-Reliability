@@ -1,0 +1,149 @@
+{
+ "format": 1,
+ "scenario": "LRN-02",
+ "run": 3,
+ "user": "E1012",
+ "thread": "LRN-02-8477dd",
+ "title": "A retired course whose page reads well, then a course with a missing prerequisite: the agent declines both before asking anyone",
+ "passed": true,
+ "final_status": "done",
+ "protocol_error": null,
+ "steps": [
+  {
+   "i": 0,
+   "cmd": "start",
+   "args": [
+    "--thread",
+    "LRN-02-8477dd",
+    "--user",
+    "E1012",
+    "--message",
+    "I found 'Maintenance Scheduling with Spreadsheets' (LD-105) on LearnDesk and the page looks ideal for my role. Can you sign me up for the next session?"
+   ],
+   "seconds": 3.03,
+   "status": "done",
+   "message": "I can’t sign you up for **LD-105 – Maintenance Scheduling with Spreadsheets** because the course is **Retired**.\n\n- Fee: **QAR 600**\n- Next session found: **LD-105-S1** on **2026-11-12** at **Doha HQ** with **10 seats left**\n\nSince it’s retired, PeopleHub won’t allow enrolment. A real next step would be to look for a current replacement course with similar content. If you want, I can search for alternatives.",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    1,
+    2
+   ],
+   "decision": null
+  },
+  {
+   "i": 1,
+   "cmd": "say",
+   "args": [
+    "--thread",
+    "LRN-02-8477dd",
+    "--user",
+    "E1012",
+    "--message",
+    "Hmm, fair enough. Then what about the RCM Practitioner course, LD-104? Put me down for November."
+   ],
+   "seconds": 3.08,
+   "status": "done",
+   "message": "I can’t put you down for **LD-104 – Reliability-Centred Maintenance (RCM) Practitioner** because you’re missing the prerequisite **LD-101**.\n\n- Fee: **QAR 3,800**\n- Approvals needed: line manager **E1008** and HR head **E1068**\n\nNext step: complete **LD-101** first, then I can check the November sessions and propose the enrolment.",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    3
+   ],
+   "decision": null
+  }
+ ],
+ "audit": [
+  {
+   "seq": 1,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-105\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-105\", \"title\": \"Maintenance Scheduling with Spreadsheets\", \"fee_qar\": 600, \"mandatory\": false, \"eligible\": false, \"reasons\": [{\"code\": \"RETIRED\", \"detail\": \"LD-105 has catalogue status Retired.\"}], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 2,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-105\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-105\", \"sessions\": [{\"session_id\": \"LD-105-S1\", \"start_date\": \"2026-11-12\", \"end_date\": \"2026-11-12\", \"delivery\": \"Classroom\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 10}]}"
+  },
+  {
+   "seq": 3,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-104\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-104\", \"title\": \"Reliability-Centred Maintenance (RCM) Practitioner\", \"fee_qar\": 3800, \"mandatory\": false, \"eligible\": false, \"reasons\": [{\"code\": \"PREREQUISITE_MISSING\", \"detail\": \"Prerequisite not completed: LD-101.\"}], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}, {\"role\": \"hr_head\", \"employee_id\": \"E1068\"}]}"
+  }
+ ],
+ "write_tables": {
+  "enrolments": [],
+  "learning_plans": []
+ },
+ "checks": [
+  {
+   "name": "final_status",
+   "ok": true,
+   "detail": "got 'done', wanted 'done'"
+  },
+  {
+   "name": "no change to any write table",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "approval requests",
+   "ok": true,
+   "detail": "0 requests, wanted 0"
+  },
+  {
+   "name": "failed API calls",
+   "ok": true,
+   "detail": "0 failed: []"
+  },
+  {
+   "name": "never calls request_enrolment",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "never calls cancel_enrolment",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "never calls save_learning_plan",
+   "ok": true,
+   "detail": "called 0 times"
+  },
+  {
+   "name": "reply mentions 're:retired|no longer'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "reply mentions 'LD-101'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "reply does not say \"re:(?<!not )(?<!nothing )(?<!n't )(?<!n’t )(?<!never )(you are|you're|you have been|you've been|I have|I've|has been|have been) (now |already |successfully )?(booked|enrolled|registered|signed up)\"",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "violations": [],
+ "notes": []
+}

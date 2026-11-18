@@ -1,0 +1,265 @@
+{
+ "format": 1,
+ "scenario": "LRN-08",
+ "run": 2,
+ "user": "E1012",
+ "thread": "LRN-08-74ef46",
+ "title": "The booking call fails once with a temporary error: the agent retries and the course is booked exactly once",
+ "passed": true,
+ "final_status": "done",
+ "protocol_error": null,
+ "steps": [
+  {
+   "i": 0,
+   "cmd": "start",
+   "args": [
+    "--thread",
+    "LRN-08-74ef46",
+    "--user",
+    "E1012",
+    "--message",
+    "Please book me on the Risk Assessment (HIRA) Workshop, LD-109. Earliest session is fine."
+   ],
+   "seconds": 2.35,
+   "status": "awaiting_approval",
+   "message": "I have asked E1008 to approve this: book E1012 on LD-109 Risk Assessment (HIRA) Workshop, session LD-109-S1 starting 2026-11-18, fee QAR 1,300. Nothing happens until they approve.",
+   "pending": {
+    "tool": "request_enrolment",
+    "args": {
+     "employee_id": "E1012",
+     "course_id": "LD-109",
+     "session_id": "LD-109-S1"
+    },
+    "approvers": [
+     "E1008"
+    ],
+    "summary": "book E1012 on LD-109 Risk Assessment (HIRA) Workshop, session LD-109-S1 starting 2026-11-18, fee QAR 1,300"
+   },
+   "stderr_tail": "",
+   "audit_seqs": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "decision": {
+    "decision": "approve",
+    "by": "E1008",
+    "edit": null
+   }
+  },
+  {
+   "i": 1,
+   "cmd": "resume",
+   "args": [
+    "--thread",
+    "LRN-08-74ef46",
+    "--decision",
+    "approve",
+    "--by",
+    "E1008"
+   ],
+   "seconds": 0.04,
+   "status": "done",
+   "message": "Done (the first try hit a temporary error, so I tried once more): you are booked on LD-109, session LD-109-S1 (enrolment 1), approved by E1008.",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "decision": null
+  }
+ ],
+ "audit": [
+  {
+   "seq": 1,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"title\": \"Risk Assessment (HIRA) Workshop\", \"fee_qar\": 1300, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 2,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-109\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-109\", \"sessions\": [{\"session_id\": \"LD-109-S1\", \"start_date\": \"2026-11-18\", \"end_date\": \"2026-11-18\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 6}, {\"session_id\": \"LD-109-S2\", \"start_date\": \"2026-12-09\", \"end_date\": \"2026-12-09\", \"delivery\": \"Workshop\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 10}, {\"session_id\": \"LD-109-S3\", \"start_date\": \"2026-12-30\", \"end_date\": \"2026-12-30\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 9}]}"
+  },
+  {
+   "seq": 3,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"title\": \"Risk Assessment (HIRA) Workshop\", \"fee_qar\": 1300, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 4,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-109\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-109\", \"sessions\": [{\"session_id\": \"LD-109-S1\", \"start_date\": \"2026-11-18\", \"end_date\": \"2026-11-18\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 6}, {\"session_id\": \"LD-109-S2\", \"start_date\": \"2026-12-09\", \"end_date\": \"2026-12-09\", \"delivery\": \"Workshop\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 10}, {\"session_id\": \"LD-109-S3\", \"start_date\": \"2026-12-30\", \"end_date\": \"2026-12-30\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 9}]}"
+  },
+  {
+   "seq": 5,
+   "function": "get_learning_profile",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"name\": \"Sunil Fernando\", \"grade\": 5, \"line_manager_id\": \"E1008\", \"budget_year\": 2026, \"grade_band\": \"G4-G6\", \"annual_budget_qar\": 6000, \"spent_this_year_qar\": 1300, \"remaining_budget_qar\": 4700, \"completed\": [{\"course_id\": \"LD-107\", \"title\": \"Fire Safety and Emergency Response\", \"completed_on\": \"2025-09-10\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"completed_on\": \"2026-01-14\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-108\", \"title\": \"Permit-to-Work for Site Teams\", \"completed_on\": \"2026-01-14\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-124\", \"title\": \"Business Writing: English and Arabic\", \"completed_on\": \"2026-02-24\", \"fee_qar\": 900, \"mandatory\": false}, {\"course_id\": \"LD-118\", \"title\": \"Cybersecurity Awareness\", \"completed_on\": \"2026-03-18\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-102\", \"title\": \"CMMS Essentials for Maintenance Teams\", \"completed_on\": \"2026-05-12\", \"fee_qar\": 400, \"mandatory\": false}], \"overdue_mandatory\": [], \"enrolments\": []}"
+  },
+  {
+   "seq": 6,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"title\": \"Risk Assessment (HIRA) Workshop\", \"fee_qar\": 1300, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 7,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-109\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-109\", \"sessions\": [{\"session_id\": \"LD-109-S1\", \"start_date\": \"2026-11-18\", \"end_date\": \"2026-11-18\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 6}, {\"session_id\": \"LD-109-S2\", \"start_date\": \"2026-12-09\", \"end_date\": \"2026-12-09\", \"delivery\": \"Workshop\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 10}, {\"session_id\": \"LD-109-S3\", \"start_date\": \"2026-12-30\", \"end_date\": \"2026-12-30\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 9}]}"
+  },
+  {
+   "seq": 8,
+   "function": "get_learning_profile",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"name\": \"Sunil Fernando\", \"grade\": 5, \"line_manager_id\": \"E1008\", \"budget_year\": 2026, \"grade_band\": \"G4-G6\", \"annual_budget_qar\": 6000, \"spent_this_year_qar\": 1300, \"remaining_budget_qar\": 4700, \"completed\": [{\"course_id\": \"LD-107\", \"title\": \"Fire Safety and Emergency Response\", \"completed_on\": \"2025-09-10\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-106\", \"title\": \"Basic HSE Awareness\", \"completed_on\": \"2026-01-14\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-108\", \"title\": \"Permit-to-Work for Site Teams\", \"completed_on\": \"2026-01-14\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-124\", \"title\": \"Business Writing: English and Arabic\", \"completed_on\": \"2026-02-24\", \"fee_qar\": 900, \"mandatory\": false}, {\"course_id\": \"LD-118\", \"title\": \"Cybersecurity Awareness\", \"completed_on\": \"2026-03-18\", \"fee_qar\": 0, \"mandatory\": true}, {\"course_id\": \"LD-102\", \"title\": \"CMMS Essentials for Maintenance Teams\", \"completed_on\": \"2026-05-12\", \"fee_qar\": 400, \"mandatory\": false}], \"overdue_mandatory\": [], \"enrolments\": []}"
+  },
+  {
+   "seq": 9,
+   "function": "request_enrolment",
+   "kind": "write",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"session_id\": \"LD-109-S1\", \"actor\": \"E1012\", \"approved_by\": \"E1008\", \"idempotency_key\": \"lc-215876da6ad95218bda905cefa2e4e88\"}",
+   "actor": "E1012",
+   "approved_by": "E1008",
+   "outcome": "error",
+   "error_code": "ERR_UNAVAILABLE",
+   "result": "{\"error\": \"ERR_UNAVAILABLE\", \"message\": \"The service is temporarily unavailable. Try again.\", \"retryable\": true}"
+  },
+  {
+   "seq": 10,
+   "function": "request_enrolment",
+   "kind": "write",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"session_id\": \"LD-109-S1\", \"actor\": \"E1012\", \"approved_by\": \"E1008\", \"idempotency_key\": \"lc-215876da6ad95218bda905cefa2e4e88\"}",
+   "actor": "E1012",
+   "approved_by": "E1008",
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"enrolment_id\": 1, \"employee_id\": \"E1012\", \"course_id\": \"LD-109\", \"session_id\": \"LD-109-S1\", \"status\": \"booked\", \"fee_qar\": 1300, \"approved_by\": \"E1008\"}"
+  }
+ ],
+ "write_tables": {
+  "enrolments": [
+   {
+    "enrolment_id": 1,
+    "employee_id": "E1012",
+    "course_id": "LD-109",
+    "session_id": "LD-109-S1",
+    "status": "booked",
+    "requested_by": "E1012",
+    "approved_by": "E1008",
+    "booked_on": "2026-10-16",
+    "cancelled_on": null
+   }
+  ],
+  "learning_plans": []
+ },
+ "checks": [
+  {
+   "name": "final_status",
+   "ok": true,
+   "detail": "got 'done', wanted 'done'"
+  },
+  {
+   "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-109', 'status': 'booked'}",
+   "ok": true,
+   "detail": "found 1, wanted 1"
+  },
+  {
+   "name": "approval requests",
+   "ok": true,
+   "detail": "1 requests, wanted 1"
+  },
+  {
+   "name": "tools proposed for approval",
+   "ok": true,
+   "detail": "got ['request_enrolment'], wanted ['request_enrolment']"
+  },
+  {
+   "name": "approvers asked for request 1",
+   "ok": true,
+   "detail": "asked ['E1008'], wanted ['E1008']"
+  },
+  {
+   "name": "failed API calls",
+   "ok": true,
+   "detail": "1 failed: [('request_enrolment', 'ERR_UNAVAILABLE')]"
+  },
+  {
+   "name": "calls to request_enrolment ",
+   "ok": true,
+   "detail": "1 calls, wanted 1"
+  },
+  {
+   "name": "calls to request_enrolment ",
+   "ok": true,
+   "detail": "1 calls, wanted 1"
+  },
+  {
+   "name": "every approved write carries only approvals from people who decided",
+   "ok": true,
+   "detail": "writes with other approvers: []"
+  },
+  {
+   "name": "reply mentions one of ['booked', 'enrolled', 'confirmed', 'registered']",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "reply does not say \"re:(couldn't|could not|was not able to|unable to|failed to) (book|enrol)\"",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "violations": [],
+ "notes": []
+}

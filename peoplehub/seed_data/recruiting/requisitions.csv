@@ -1,0 +1,5 @@
+req_id,title,department,grade,location,headcount,status,hiring_manager_id,posted_date,language_requirement
+REQ-2026-014,Senior Accountant,Finance,6,Doha HQ,1,Open,E1060,2026-09-06,English essential; Arabic an advantage
+REQ-2026-017,HSE Officer,"Health, Safety & Environment",4,Mesaieed Site,2,Open,E1052,2026-09-10,"English essential; Arabic, Hindi or Urdu useful on site"
+REQ-2026-021,Maintenance Engineer,Operations & Maintenance,5,Ras Laffan Site,1,Open,E1005,2026-09-13,English essential
+REQ-2026-023,IT Support Analyst,Information Technology,4,Doha HQ,1,Open,E1078,2026-09-17,English essential; Arabic an advantage
