@@ -23,6 +23,7 @@ def command(*args):
 def main():
     command('-m', 'unittest', 'discover', '-s', 'tests', '-q')
     command('tools/validate_scenarios.py', 'scenarios/lab_learning.jsonl', '--track', 'learning')
+    command('tools/validate_scenarios.py', 'scenarios/lab_onboarding.jsonl', '--track', 'onboarding')
     command('tools/precommit_check.py')
     manifest = json.loads((ROOT / 'reports/input_manifest.json').read_text(encoding='utf-8'))['files']
     for relative, expected in manifest.items():

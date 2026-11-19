@@ -95,14 +95,14 @@ The public A→B gate returns **ok**. Each batch passes 47/48; LRN-07 is 5/6 in 
 
 ## What changed and what remains
 
-Implemented all four lab modules, added extra boundary tests and a reversible Downloads organizer, authored ten scenarios with predictions, created the two fixture variants, and added an offline CI workflow. **61 unit tests pass**, including all **47 unchanged supplied tests**. The frozen agent was not changed; there is no target improvement or before/after score to claim.
+Implemented all four lab modules, added extra boundary tests and a reversible Downloads organizer, authored ten scenarios with predictions, created the two fixture variants, and added an offline CI workflow. **65 unit tests pass**, including all **47 unchanged supplied tests**. The frozen agent was not changed; there is no target improvement or before/after score to claim.
 
-The Level 1 and Level 2 offline deliverables are complete locally. The findings note already documents five issues from supplied evidence. Level 3 is incomplete until new target results and findings about my own agent arrive. Remote publication, a Phase 3 PR and reciprocal peer review are pending. The brief requests a separate repository and asks us to confirm where to push it.
+The supplied-recording analysis and Level 2 offline deliverables are complete locally; the own-agent ten-repeat measurement remains pending on Windows. The findings note already documents five issues from supplied evidence. Level 3 is incomplete until new target results and findings about my own agent arrive. Remote publication, a Phase 3 PR and reciprocal peer review are pending. The brief requests a separate repository and asks us to confirm where to push it.
 
 ## What was not checked
 
 - No fresh model evaluation of the ten new cases; predictions are not results.
-- No ten-repeat evaluation of my Onboarding agent in this environment: its Windows model configuration is not available here. Earlier Phase 2 scores are not reused as Phase 3 measurements.
+- Own-agent ten-repeat evaluation is pending on Windows, where Azure access is available. `tools/evaluate_onboarding.py` prepares the required 80 public runs and records model metadata; it also supports nine runs across three newly added own-agent cases. Earlier Phase 2 scores are not reused as Phase 3 measurements.
 - No second model, concurrency, load, latency benchmark, cost analysis or production HR/email integration.
 - No live replay of the specific recorded failures. The supplied recordings are evidence of those runs, not today's deployment state.
 - No hosted CI execution or mentor acceptance yet. CI checks the committed evidence and fixtures; it cannot test a changed real agent without new result files.

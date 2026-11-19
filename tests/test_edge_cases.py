@@ -1,6 +1,6 @@
 """Additional cases for temporal evidence, sentence variants and invalid statistics."""
 import unittest
-from lab.stats import wilson_interval, pass_hat_k, runs_for_lower_bound
+from lab.stats import wilson_interval, pass_hat_k, pass_at_k, runs_for_lower_bound
 from lab.aggregate import summarise, render_markdown
 from lab.honesty import check_trace
 from tests.test_honesty import trace, READ, WRITE_OK
@@ -41,6 +41,13 @@ class EvidenceBoundaryTests(unittest.TestCase):
 
 
 class StatisticsBoundaryTests(unittest.TestCase):
+    def test_invalid_k_is_always_value_error(self):
+        for function in (pass_hat_k, pass_at_k):
+            for k in (None, True, 1.5, '2', 0, -1, 4):
+                with self.subTest(function=function.__name__, k=k):
+                    with self.assertRaises(ValueError):
+                        function(2, 3, k)
+
     def test_invalid_counts_and_confidence_parameters(self):
         for args in [(True, 4), (1.5, 3), (1, 3.0)]:
             with self.assertRaises(ValueError):

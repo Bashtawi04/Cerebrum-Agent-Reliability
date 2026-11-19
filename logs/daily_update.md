@@ -1,5 +1,5 @@
-# Daily update — 18 November 2026
+# 19 November 2026
 
-- Completed the offline Level 1/2 lab, analysed 120 recorded target runs and classified all 26 failures; 61 unit tests pass.
-- Validated ten scenarios, saved predictions before testing, and confirmed two cases distinguish correct from broken fixtures.
-- Next: confirm the new repository destination, request mentor target runs, then incorporate incoming findings and complete PR review.
+- Done: audited the brief, added three own-agent scenarios and the live-run helper, corrected invalid-k validation; 65 local tests pass.
+- Next: run the own-agent public ten-repeat measurement, inspect its traces, then run the new own-agent cases and obtain mentor target results.
+- Blockers: Windows model execution, separate remote destination, hosted CI and reciprocal Phase 3 review remain pending.
