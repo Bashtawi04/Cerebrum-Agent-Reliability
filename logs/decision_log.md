@@ -13,3 +13,5 @@
 | 2026-11-18 | Keep Phase 3 in a new local repository with a runnable main branch. | The brief requires separation and asks the mentors to confirm the remote destination. |
 
 - 19 November: Audit added three own-agent cases and a separate live evaluation wrapper. Predictions precede execution. Source identifiers use the same Git blob SHA-1 format as the protected-input manifest; these identify revisions, not credentials. Failed runs remain evidence and are not hidden by the supplied harness returning exit code zero. No original runner, validator, target or supplied test was changed.
+
+- 22 November: preserve the exact uploaded archive and original scenarios; re-score only documented faulty expectations offline. Do not call this a fresh live run or agent improvement. Keep wrong-language, offer and approval-note findings open.

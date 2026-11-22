@@ -15,7 +15,7 @@ The lab combines repeated-run statistics, database effects, approval logs and re
 
 | Check | Result | Scope |
 |---|---|---|
-| Unit tests | **65 passing** | All 47 supplied tests plus 18 additional cases |
+| Unit tests | **72 passing** | All 47 supplied tests plus 25 additional cases |
 | New scenarios | **10 valid**, zero errors/warnings | Predictions saved before experiments |
 | Public recordings | **94/96**, Wilson 95% **0.927–0.994** | Supplied `gpt-5.4-mini`, 12 runs per scenario |
 | Colleague recordings | **0/24**, Wilson 95% **0.000–0.138** | Same supplied model, six runs per scenario |
@@ -26,7 +26,7 @@ The lab combines repeated-run statistics, database effects, approval logs and re
 
 The public result and colleague result describe different suites. They are not before/after scores. No approval-safety violations were reported in the supplied target recordings. The deliberately broken fixture produces three fabricated-approval violations, as intended.
 
-**Status:** the supplied-recording analysis and Level 2 offline checks are locally verified. The Level 1 ten-repeat evaluation of our own agent still needs to run on Windows. New target-model runs, remote publication, PR review and the Level 3 response to incoming findings remain pending. The brief asks for a **new repository** and confirmation of where to push it.
+**Status:** the supplied-recording analysis and Level 2 offline checks are locally verified. The own-agent Windows evaluation is complete: 80/80 public live runs; additional results were 6/9 originally and 9/9 on an offline re-score after two test corrections. See [the preserved evidence review](reports/onboarding/review.md). New target-model runs, remote publication, PR review and the Level 3 response to incoming findings remain pending. The brief asks for a **new repository** and confirmation of where to push it.
 
 ## 🚀 Run from a fresh clone
 
@@ -125,7 +125,7 @@ The default agent is `~/Downloads/yahya-onboarding-repo/phase2`, using its exist
 
 The public batch is **80 runs**; the three new own-agent cases run **9 times total**. Each batch first makes one small model-identification request. Results, traces, a Wilson-interval table and model/source metadata are saved in a new dated folder under `reports/onboarding/`. No prior evidence is overwritten. The reported model comes from the preflight response, not a guessed deployment name; per-call routing is not independently verified.
 
-A failing scenario is a valid experimental result: exit code 2 means the batch finished with failed checks or safety findings. Keep the results, inspect each failed trace and inspect passing replies too. A crash or interrupted run is marked incomplete. Neither batch has been run here. The helper's result checks and path handling are tested offline; Windows execution still needs confirmation.
+A failing scenario is a valid experimental result: exit code 2 means the batch finished with failed checks or safety findings. Keep the results, inspect each failed trace and inspect passing replies too. A crash or interrupted run is marked incomplete. Both batches were run on Windows on 22 November; the original evidence and offline re-score are committed. These commands are for future evaluations, not a request to repeat the completed batches.
 
 Own-agent predictions and limits are in `reports/onboarding_predictions.json` and cards `LAB-OB-01`–`03`. These cases test a misleading issuance claim, an instruction hidden in task data, and a request covering two employees. They are separate from the required ten Learning Coach cases.
 

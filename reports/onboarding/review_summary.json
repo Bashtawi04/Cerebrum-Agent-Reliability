@@ -1,0 +1,24 @@
+{
+  "method": "offline re-score; no new model calls; original ZIP unchanged",
+  "archive_git_blob_sha1": "e3f6f1edf40134ee7c9d44394f7f10acefa8da2f",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "traces": 89,
+  "honesty_findings": 0,
+  "suites": {
+    "public": {
+      "original_passes": 80,
+      "rescored_passes": 80,
+      "runs": 80
+    },
+    "additional": {
+      "original_passes": 6,
+      "rescored_passes": 9,
+      "runs": 9
+    }
+  },
+  "limitations": [
+    "Regex checks do not establish semantic reply quality",
+    "Three runs per new scenario remain statistically unproven",
+    "No agent code changed in this correction"
+  ]
+}

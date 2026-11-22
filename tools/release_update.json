@@ -1,0 +1,110 @@
+{
+  "README.md": {
+    "old": "6819a0cc2b2369d7ed171b4b06b5ccb80ee07906",
+    "new": "674e17bd293504cd8cbd301a3869bc4954101b90"
+  },
+  "logs/daily_update.md": {
+    "old": "ae84d04878a99a7fb86b4a90b325f92f88b26284",
+    "new": "42117703e8acd3ab61eb0ce72344303dc72eeee0"
+  },
+  "logs/decision_log.md": {
+    "old": "76346a1c25bfdb1905549f8f934b6c3fdd50cf60",
+    "new": "069bca1be08183bf945a853101c30438fc9f7bcf"
+  },
+  "reports/PR_DESCRIPTION.md": {
+    "old": "7e9eb01e03ce01b308957b1ebf715dbbae726e3d",
+    "new": "b401ff840c7552390ca364be7542cc9955a59ac7"
+  },
+  "reports/cards/LAB-OB-01.md": {
+    "old": "8b6e3ef009b494000464542cd618a951af46dc72",
+    "new": "7c75c64a495bb903c7626e5fda6711603fb01372"
+  },
+  "reports/cards/LAB-OB-02.md": {
+    "old": "9dbef39f341b9ae576c58d4d6e84b4990473a780",
+    "new": "7487b0db90f9161a1df5b4f4b9560f98b8050d56"
+  },
+  "reports/cards/LAB-OB-03.md": {
+    "old": "2de6b1d2224419ccf50efd42d8ba081061bbf736",
+    "new": "000ba7347926d5f4dafd01789989491b6af70dd6"
+  },
+  "reports/evaluation_report.md": {
+    "old": "c98e3a797674046545a4e3a46bd211f24431c1e0",
+    "new": "26e9429213e65dbc98daaf3a400fb8300dc11d04"
+  },
+  "reports/mentor_feedback_crosswalk.md": {
+    "old": null,
+    "new": "0faf1821f3097c83eb97f3b98e7310a69257b3b7"
+  },
+  "reports/mentor_message.md": {
+    "old": "56e0ea78bd35ce0d488bc496a07850b8e83d0997",
+    "new": "eb7bb333ccf5ca9decaee8be40e753283bbe5ca9"
+  },
+  "reports/onboarding/additional_original_table.md": {
+    "old": null,
+    "new": "2f29481913ec456b4767d05a6bcca5139ba94c87"
+  },
+  "reports/onboarding/additional_rescored.json": {
+    "old": null,
+    "new": "f77917499bb7d58a637702a58bc409d93de22269"
+  },
+  "reports/onboarding/additional_rescored_table.md": {
+    "old": null,
+    "new": "ebb82e5de0ae7fef3e18eacd53ca85dbf7a4a228"
+  },
+  "reports/onboarding/live-evidence.zip": {
+    "old": null,
+    "new": "01cd07f967b40a60aea75cc6af25fb770917bd44"
+  },
+  "reports/onboarding/original_scenarios.jsonl": {
+    "old": null,
+    "new": "fd946185c925af89dcee85033a9fac7fcc222217"
+  },
+  "reports/onboarding/public_original_table.md": {
+    "old": null,
+    "new": "47e9e0c8a171e6d1cb4ca0b711cae0c4bb0fbc5d"
+  },
+  "reports/onboarding/public_rescored.json": {
+    "old": null,
+    "new": "52c09cfef8fbc3efa5ea312ff3d2c38b955a7c71"
+  },
+  "reports/onboarding/public_rescored_table.md": {
+    "old": null,
+    "new": "74f8a3a60963ebc66c46bdded78051840488e4d8"
+  },
+  "reports/onboarding/review.md": {
+    "old": null,
+    "new": "f956baf7c2228d845c906ca5bf6939cbef8cb6e7"
+  },
+  "reports/onboarding/review_summary.json": {
+    "old": null,
+    "new": "46903ae6996c064b22cf56271dbc4b98453ebd50"
+  },
+  "reports/phase3_status.md": {
+    "old": "2f9471d36f355389a4aa7ee3acf3764185541e07",
+    "new": "01ed6c82d6b96a74b2343ba33fb2074f03723cc4"
+  },
+  "reports/response_to_findings.md": {
+    "old": "aa0d493c5e7008a06ee21a6fe7e2424b358931ae",
+    "new": "d0cad6228dbe20e5a5d3d1fff81313dda705c99b"
+  },
+  "scenarios/lab_onboarding.jsonl": {
+    "old": "fd946185c925af89dcee85033a9fac7fcc222217",
+    "new": "361548d1d3ebaaad9dbbc604a17dcaa64e4ef0fe"
+  },
+  "tests/test_live_evidence.py": {
+    "old": null,
+    "new": "722627a2191ed0b31428985fd1589ad771aac51e"
+  },
+  "tools/install_review_update.py": {
+    "old": null,
+    "new": "dd2deb1a8d913ecebdbfc63cdf122e57d0c6936e"
+  },
+  "tools/reproduce.py": {
+    "old": "a2879f9eb81e96c7ce37c226b01cf2637748353c",
+    "new": "8c22517987de17ccd3f1c3e00bbf8362d50887ec"
+  },
+  "tools/review_live_evidence.py": {
+    "old": null,
+    "new": "32f6ccde7ad7438871749b264a23c25f564194d0"
+  }
+}

@@ -14,10 +14,10 @@ The supplied public recordings pass 94/96 runs (Wilson 95% interval 0.927–0.99
 
 ## Validation
 
-`python tools/reproduce.py` passes locally: 65 unit tests, scenario validation, secret/generated-file check, protected-input checks, recorded-report reproduction, failure-index coverage, honesty controls, public A/B gate and scripted experiments. A fresh local clone was also checked.
+`python tools/reproduce.py` passes locally: 72 unit tests, scenario validation, secret/generated-file check, protected-input checks, recorded-report reproduction, failure-index coverage, honesty controls, public A/B gate and scripted experiments. A fresh local clone was also checked.
 
 The correct fixtures each pass 3/3 (95% interval 0.44–1.00); the broken fixtures each pass 0/3 (0.00–0.56). These are model-free checks, not target-model results.
 
 ## Remaining work
 
-The new Learning Coach scenarios still need target-model runs from the mentors. The own Onboarding agent also needs its ten-repeat public evaluation on Windows and runs of the three new own-agent cases; their predictions and a model-aware evaluation helper are included. Incoming Phase 3 findings and reciprocal review remain pending. Hosted CI has not yet run. The current report does not claim a target fix, a new-model score or mentor acceptance.
+The new Learning Coach scenarios still need target-model runs from the mentors. The own Onboarding evaluation is now recorded: 80/80 public runs, and 6/9 original additional runs. Two scenario defects are documented and regression-tested; an offline re-score of the same additional traces passes 9/9. Original evidence is retained. Wrong-language and unwanted-offer findings remain open; the agent was not changed. Incoming Phase 3 findings and reciprocal review remain pending. Hosted CI has not yet run. The current report does not claim a target fix, a new-model score or mentor acceptance.
