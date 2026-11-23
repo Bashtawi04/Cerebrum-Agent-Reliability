@@ -1,78 +1,97 @@
-# 🔎 Agent Reliability Lab
+# Agent Reliability Lab
 
 **Yahya AlBashtawi · Cerebrum · Phase 3**
-Measuring whether an agent finishes the work, respects approval boundaries and accurately explains what happened.
 
-[📊 Evaluation report](reports/evaluation_report.md) · [🧪 New scenarios](scenarios/lab_learning.jsonl) · [📝 Review findings](reports/findings_learning.md) · [🧭 Project guide](docs/PROJECT_GUIDE.md) · [✅ Delivery status](reports/phase3_status.md)
+A reproducible evaluation of whether an AI agent finishes the requested work, respects approval boundaries and accurately describes what happened.
 
-## What this project does
+[Evaluation report](reports/evaluation_report.md) · [Review findings](reports/findings_learning.md) · [Technical guide](docs/PROJECT_GUIDE.md) · [Delivery checklist](reports/phase3_status.md) · [GitHub Actions](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions)
 
-Phase 2 built an Onboarding agent. Phase 3 builds the tools to evaluate an agent's reliability. This is a separate repository; the evaluated Learning Coach is the supplied frozen copy at commit `5f4d9dc`.
+---
 
-The lab combines repeated-run statistics, database effects, approval logs and reply checks. The target and supplied test infrastructure remain unchanged. It does not connect to real HR records or send real emails.
+## Why this project exists
 
-## Current evidence
+An agent can pass a scenario and still omit part of a request, describe a proposed action as completed, or fail when the same request is repeated. This lab checks the database effects and conversation together, then measures how consistently the agent succeeds.
 
-| Check | Result | Scope |
-|---|---|---|
-| Unit tests | **72 passing** | All 47 supplied tests plus 25 additional cases |
-| New scenarios | **10 valid**, zero errors/warnings | Predictions saved before experiments |
-| Public recordings | **94/96**, Wilson 95% **0.927–0.994** | Supplied `gpt-5.4-mini`, 12 runs per scenario |
-| Colleague recordings | **0/24**, Wilson 95% **0.000–0.138** | Same supplied model, six runs per scenario |
-| Failure analysis | **26/26 failed runs classified** | Each has a trace, step and code reference |
-| Honesty checker | **0 findings / 120 target traces** | Three specified claim rules, with positive/negative controls |
-| Scripted experiments | Good **3/3**; broken **0/3**, per case | Two cases; no model. Intervals: **0.44–1.00** and **0.00–0.56** |
-| Public A → B gate | **Pass: no regression detected** | Does not establish overall agent readiness |
+Phase 1 built an onboarding assistant that answers from documents and permitted records. Phase 2 added controlled actions and human approval. **Phase 3 evaluates reliability:** it is a separate project, not a replacement for either earlier implementation.
 
-The public result and colleague result describe different suites. They are not before/after scores. No approval-safety violations were reported in the supplied target recordings. The deliberately broken fixture produces three fabricated-approval violations, as intended.
+The main target is the supplied **Learning Coach**, frozen at commit `5f4d9dc`. My own **Onboarding agent** is measured separately. Both use fictional PeopleHub data; no real HR records are changed and no external emails are sent.
 
-**Status:** the supplied-recording analysis and Level 2 offline checks are locally verified. The own-agent Windows evaluation is complete: 80/80 public live runs; additional results were 6/9 originally and 9/9 on an offline re-score after two test corrections. See [the preserved evidence review](reports/onboarding/review.md). New target-model runs, remote publication, PR review and the Level 3 response to incoming findings remain pending. The brief asks for a **new repository** and confirmation of where to push it.
+## Start here
 
-## 🚀 Run from a fresh clone
+| What you want to inspect | Open |
+|---|---|
+| Measurements, model information and limitations | [Evaluation report](reports/evaluation_report.md) |
+| Why the Learning Coach failed | [Five findings with trace and code references](reports/findings_learning.md) |
+| The original and corrected Onboarding results | [Evidence review](reports/onboarding/review.md) |
+| The ten new Learning Coach experiments | [Scenario file](scenarios/lab_learning.jsonl) and [prediction cards](reports/cards/) |
+| How the code and statistics work | [Project guide](docs/PROJECT_GUIDE.md) |
+| Completed work and remaining review steps | [Delivery status](reports/phase3_status.md) |
 
-Requirements: **Python 3.10+ and Git**. The lab and fixtures use the standard library. No package install, Azure key or model is needed for the commands below. The frozen target itself requires Python 3.11+ if you later choose to run it.
+## Reproduce the work
 
-**Windows / PowerShell**, from this project folder:
+The offline lab needs **Git and Python 3.10 or newer**. It uses the Python standard library: no API key, Azure connection or package installation is required.
+
+```bash
+git clone --branch phase3-reliability https://github.com/Bashtawi04/Cerebrum-Agent-Reliability.git
+cd Cerebrum-Agent-Reliability
+```
+
+**Windows / PowerShell:**
 
 ```powershell
-python tools/reproduce.py
+python -X utf8 tools/reproduce.py
 ```
 
-**Linux / macOS**, from this project folder:
+**Linux / macOS:**
 
 ```bash
-python3 tools/reproduce.py
+python3 -X utf8 tools/reproduce.py
 ```
 
-This runs the unit tests, scenario validator, secret/generated-file check, protected-input comparison, recorded-table checks, failure-index checks, honesty controls, public A/B gate and fresh scripted experiments in a temporary folder. It ends with `OFFLINE CHECKS PASSED`.
+The command checks all 72 unit tests, both new scenario files, preserved live evidence, the secret/generated-file scan, 232 protected inputs, report reproduction, all failed-run classifications, honesty controls, the baseline/current gate and fresh scripted experiments. Successful execution ends with `OFFLINE CHECKS PASSED`.
 
-An optional virtual environment can be created with `python -m venv .venv` (or `python3` on Linux/macOS); no activation or packages are required to understand this project. Do not copy a virtual environment from another machine.
+This reproduces saved evidence and model-free experiments. It does **not** make new model calls or prove that a changed agent would obtain the same live results.
 
-### Individual commands
+## Evidence at a glance
 
-The commands are single lines. Use `python3` instead of `python` if that is your system's executable name.
+### Supplied Learning Coach recordings
 
-```bash
-python -m unittest discover -s tests -t . -v
-python tools/validate_scenarios.py scenarios/lab_learning.jsonl --track learning
-python -m lab.aggregate recorded/learning_agent/public_a.json recorded/learning_agent/public_b.json --title "Target, public scenarios"
-python -m lab.aggregate recorded/learning_agent/suite.json --title "Target, colleague suite"
-python -m lab.honesty recorded/learning_agent/traces
-python -m lab.gate --baseline recorded/learning_agent/public_a.json --current recorded/learning_agent/public_b.json
-python tools/run_scripted_checks.py
-python tools/precommit_check.py
-```
+Model: mentor-recorded **`gpt-5.4-mini`**. The suites below contain different requests; they are not before/after measurements.
 
-`run_scripted_checks.py` regenerates the saved fixture reports under `reports/scripted/`; the full reproduction command uses temporary output instead, keeping the checkout unchanged.
+| Suite | Runs | Passed | Pooled Wilson 95% interval | Evidence |
+|---|---:|---:|---|---|
+| Public: eight scenarios, 12 repeats each | 96 | 94/96 | 0.927–0.994 | [Per-scenario table](reports/target_table.md) |
+| Colleague: four scenarios, six repeats each | 24 | 0/24 | 0.000–0.138 | [Per-scenario table](reports/colleague_table.md) |
 
-## 🧠 Architecture
+Pooled intervals summarize these samples; they do not account for arbitrary real-world task mixtures or correlated runs. The linked tables include per-scenario intervals, `pass^3` and failure labels.
+
+- **26/26 failed runs classified**, with a trace, step and relevant code reference.
+- **120 traces checked** by the three-rule honesty checker, with zero findings on those target recordings.
+- Positive controls detect three supplied false claims and one synthetic false claim; seven clean controls remain clear.
+- The public A → B gate passes: **no regression detected under its rules**, not a claim that the colleague suite passes.
+
+### Own Onboarding agent
+
+Model-identification response: **`gpt-5.4-mini-2026-03-17`**. These runs were made on Windows on 22 November 2026 and are kept separate from the target recordings.
+
+| Evaluation | Recorded result | Per-scenario uncertainty |
+|---|---|---|
+| Public: eight cases × ten repeats | **80/80 live runs** | Each 10/10: Wilson 95% approximately 0.72–1.00 |
+| Additional: three cases × three repeats | **6/9 original live runs** | See the [original table](reports/onboarding/additional_original_table.md) |
+| Same additional traces after correcting our checks | **9/9 offline re-score** | Each 3/3: approximately 0.44–1.00; unproven |
+
+The additional check incorrectly treated an existing laptop record as a new action. Two reply patterns were also incorrectly escaped. The corrections have regression tests, and the original results and traces are preserved. **The re-score is not a new live run or an agent improvement.**
+
+The harness reported zero safety violations across these 89 runs. Manual review still found wrong-language output, unwanted follow-up offers and repetition of an unverified approval claim. Those findings remain open; passing assertions do not establish perfect replies.
+
+## How the lab works
 
 ```mermaid
 flowchart TD
     A[Scenario and agent] --> B[Supplied runner]
-    B --> C[Results and database checks]
+    B --> C[Database checks and results]
     B --> D[Conversation and audit traces]
-    C --> E[Statistics and comparison gate]
+    C --> E[Statistics and regression gate]
     D --> F[Honesty checker and manual review]
     E --> G[Evidence report]
     F --> G
@@ -80,78 +99,66 @@ flowchart TD
     H --> A
 ```
 
-| Folder | Purpose |
+| Component | Responsibility |
 |---|---|
-| `lab/` | Implemented statistics, aggregation, reply checks and regression gate |
-| `tests/` | Unchanged supplied tests plus additional boundary/cleanup tests |
-| `scenarios/lab_learning.jsonl` | Ten new experiments for the Learning Coach |
-| `scenarios/lab_onboarding.jsonl` | Three new own-agent experiments with predictions |
-| `scripted/` | Limited correct fixture and deliberately broken modes |
-| `recorded/` | Original mentor-supplied model results and traces |
-| `targets/learning_agent/` | Frozen target; do not edit |
-| `reports/` | Reproducible measurements, classifications, cards and review notes |
-| `tools/reproduce.py` | Complete offline verification in one command |
-| `tools/organize_downloads.py` | Optional reversible cleanup of known old Phase 2 downloads |
-| `.github/workflows/` | Offline CI on Python 3.10 and 3.12; no keys |
+| `lab/stats.py` | Wilson intervals, `pass^k`, `pass@k` and input validation |
+| `lab/aggregate.py` | Combine result files into per-scenario summaries |
+| `lab/honesty.py` | Compare specified reply claims with successful writes and approval status |
+| `lab/gate.py` | Reject reported safety violations, missing scenarios and statistically separated drops |
+| `scenarios/lab_learning.jsonl` | Ten new target experiments with prior predictions |
+| `scripted/` | Predictable correct and deliberately broken behaviours for testing scenarios |
+| `reports/` | Results, classifications, findings, predictions and original evidence |
+| `tools/reproduce.py` | One-command offline verification |
+| `.github/workflows/offline-checks.yml` | Run offline verification on Python 3.10 and 3.12 |
 
-## 📐 Reading the numbers
+The supplied target, PeopleHub implementation, harness and original tests remain unchanged. Protected file hashes are checked during reproduction.
 
-- **Wilson interval:** uncertainty around the observed pass rate. Three successes from three runs give a lower bound near 44%, so this is labelled **unproven**.
-- **pass^3:** the estimated chance that all three sampled attempts succeed: `C(passes, 3) / C(runs, 3)`. This exposes inconsistency in action-taking agents.
-- **pass@3:** the chance that at least one of three succeeds. It can look excellent even when repeated use is frustrating.
-- **Gate:** fails on reported safety violations, missing baseline scenarios or a current Wilson interval wholly below the baseline interval. Passing means no detected regression under those rules, not “all scenarios pass.”
+## What the new scenarios establish
 
-The checker follows the supplied English sentence patterns. It does not judge every meaning, every language, or whether a particular write matches every claim. Read [its limitations and controls](reports/honesty_review.md).
+The ten Learning Coach cases cover multi-action requests, refused actions, approval recovery, instructions hidden in data and other boundary conditions. Predictions were committed at `50bf3f7` before the scripted experiments.
 
-## 🧪 Running the new scenarios on a real model
+Two cases were exercised with correct and deliberately broken fixtures. Correct behaviours pass **3/3 per case**; broken behaviours pass **0/3 per case**. The respective Wilson 95% intervals are approximately **0.44–1.00** and **0.00–0.56**. These are **fixture results, not target-model scores**.
 
-The ten new scenarios have **no target-model score yet**. Send `scenarios/lab_learning.jsonl` to the mentors as described in [NO_AZURE](docs/NO_AZURE.md). They can run the frozen target on their deployment and return results plus traces. Keep those results separate from any run made with a different model.
+The ten new cases still need target-model execution. The brief provides a mentor-run route: send [the validated scenario file](scenarios/lab_learning.jsonl) and request results plus full traces. See [model-access instructions](docs/NO_AZURE.md).
 
-If you use your own model access, follow the original target setup instructions and use an absolute interpreter path with `--agent-dir`. Do not borrow the Phase 2 deployment name and label it `gpt-5.4-mini` without checking the actual model. Run one job at a time. No API key should go into a report or commit.
+## Reading the results correctly
 
-## Evaluate your own Onboarding agent
+- A proposal is not an executed action. An open laptop request is not a delivered laptop.
+- `pass^3` measures whether all three sampled attempts pass; `pass@3` asks whether at least one passes. For action agents, consistency matters.
+- Three successes are labelled **unproven** because the uncertainty is wide.
+- Zero honesty findings means none of the checker's three patterns fired. It does not verify every action, detail or language.
+- A successful CI run checks code and committed evidence. It does not run Azure or certify the agent's behaviour on unseen requests.
 
-The brief (pages 3 and 5) asks for **ten repeats per public scenario when your own agent can run**. Your existing Windows Azure setup can be used. These live calls consume your deployment quota; run one job at a time. Do not change the agent or deployment during a batch.
+## Live evaluations and useful commands
 
-From this lab folder, run these commands separately:
+The completed own-agent batches do not need to be repeated merely to reproduce this report. For a future agent revision, use the helper below, one job at a time:
 
-```powershell
+```bash
 python tools/evaluate_onboarding.py --dry-run
 python tools/evaluate_onboarding.py --suite public
 python tools/evaluate_onboarding.py --suite additional
 ```
 
-The default agent is `~/Downloads/yahya-onboarding-repo/phase2`, using its existing virtual environment and `.env`. On another machine, pass `--agent-dir` and `--agent-python` with absolute paths. Use `python3` instead of `python` on Linux/macOS where needed.
+On Linux/macOS use `python3`. The helper defaults to the separate Windows Phase 2 checkout at `~/Downloads/yahya-onboarding-repo/phase2`. Elsewhere, pass `--agent-dir` and `--agent-python` with absolute paths. The target agent has its own dependencies and model configuration; these live commands consume model quota. Keep new evidence separate from the original batches.
 
-The public batch is **80 runs**; the three new own-agent cases run **9 times total**. Each batch first makes one small model-identification request. Results, traces, a Wilson-interval table and model/source metadata are saved in a new dated folder under `reports/onboarding/`. No prior evidence is overwritten. The reported model comes from the preflight response, not a guessed deployment name; per-call routing is not independently verified.
+For individual offline checks:
 
-A failing scenario is a valid experimental result: exit code 2 means the batch finished with failed checks or safety findings. Keep the results, inspect each failed trace and inspect passing replies too. A crash or interrupted run is marked incomplete. Both batches were run on Windows on 22 November; the original evidence and offline re-score are committed. These commands are for future evaluations, not a request to repeat the completed batches.
-
-Own-agent predictions and limits are in `reports/onboarding_predictions.json` and cards `LAB-OB-01`–`03`. These cases test a misleading issuance claim, an instruction hidden in task data, and a request covering two employees. They are separate from the required ten Learning Coach cases.
-
-## 🗂️ Organising the Windows downloads
-
-Run the optional organizer from this folder:
-
-```powershell
-python tools/organize_downloads.py
-python tools/organize_downloads.py --apply
+```bash
+python -m unittest discover -s tests -t . -v
+python tools/validate_scenarios.py scenarios/lab_learning.jsonl --track learning
+python -m lab.honesty recorded/learning_agent/traces
+python -m lab.gate --baseline recorded/learning_agent/public_a.json --current recorded/learning_agent/public_b.json
+python tools/precommit_check.py
 ```
 
-The first command previews. The second moves only known old Phase 2 ZIPs, updater scripts, dated verification/publication files and eligible extracted updater folders into `Downloads/CEREBRUM_Archive/Phase2/<timestamp>/`. It deletes nothing and records an undo manifest. It leaves the working `yahya-onboarding-repo`, its environment, Phase 3 files, mentor review PDFs, CVs and unrelated files in place.
+## Publication and review
 
-To undo, use the exact manifest path printed by the organizer:
+The mentor approved GitHub for this separate repository. Both `main` and `phase3-reliability` are published. The latter contains the current evaluation package; `main` retains the runnable foundation until review and merge.
 
-```powershell
-python tools/organize_downloads.py --undo "C:/Users/Yahya/Downloads/CEREBRUM_Archive/Phase2/<timestamp>/manifest.json"
-```
+[Hosted push run 45133818132](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45133818132) passed on Python 3.10 and 3.12 at `fd2e33d`. This documentation revision also updates the GitHub action versions; its hosted result must be checked separately after pushing.
 
-Do not paste the placeholder literally. Undo refuses to overwrite a newer file. The organizer does not reset Git, remove untracked code or reorganise the active Phase 2 repository.
+**Level 1–2 technical work is ready for review.** [PR #1](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/pull/1) is open. Remaining delivery work is the human review exchange and confirmation of the next CI run. Level 3 still needs new target-model evidence and responses to incoming findings. The review rotation is **Onboarding → Learning Coach; Recruiting → Onboarding**. No mentor acceptance is claimed.
 
-## 📦 Publication and review
+[Prepared PR description](reports/PR_DESCRIPTION.md) · [Mentor handover message](reports/mentor_message.md) · [Phase 2 handover](docs/PHASE2_HANDOVER.md)
 
-This delivery includes local Git history: a runnable `main` foundation and the `phase3-reliability` branch. Predictions were committed before the scripted runs. No remote is configured and nothing from Phase 3 has been published yet.
-
-Once the mentors confirm the separate repository URL, publish these branches and open a PR using [the prepared description](reports/PR_DESCRIPTION.md). The review rotation is **Onboarding reviews Learning Coach; Recruiting reviews Onboarding**. The findings note is ready to discuss, but a completed reciprocal Phase 3 PR review is not claimed.
-
-[Phase 2 handover](docs/PHASE2_HANDOVER.md) records exactly what was published there. Phase 2 and Phase 3 have separate code, results and delivery status.
+The optional `tools/organize_downloads.py` previews known old Phase 2 downloads for reversible archiving; `--apply` moves them and records an undo manifest. It does not delete the working repositories. No cleanup run is claimed here.

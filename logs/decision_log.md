@@ -15,3 +15,5 @@
 - 19 November: Audit added three own-agent cases and a separate live evaluation wrapper. Predictions precede execution. Source identifiers use the same Git blob SHA-1 format as the protected-input manifest; these identify revisions, not credentials. Failed runs remain evidence and are not hidden by the supplied harness returning exit code zero. No original runner, validator, target or supplied test was changed.
 
 - 22 November: preserve the exact uploaded archive and original scenarios; re-score only documented faulty expectations offline. Do not call this a fresh live run or agent improvement. Keep wrong-language, offer and approval-note findings open.
+
+- 23 November: record the mentor-approved GitHub destination and the exact successful hosted revision. Upgrade checkout/setup-python to their documented v7 releases to remove the old Node runtime warnings; verify the new hosted run separately. Preserve raw results, predictions, protected inputs and historical logs.

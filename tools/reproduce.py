@@ -78,7 +78,7 @@ def main():
     print('Honesty checks: 120 target traces clear; 3 supplied false claims and 1 synthetic false claim detected; 7 clean controls clear.')
     with tempfile.TemporaryDirectory(prefix='phase3-fixtures-') as tmp:
         command('tools/run_scripted_checks.py', '--out-dir', tmp)
-    print('OFFLINE CHECKS PASSED. New target-model runs, remote publication and peer review are separate steps.')
+    print('OFFLINE CHECKS PASSED. This verifies offline evidence and fixtures; it does not run a model or complete peer review.')
 
 
 if __name__ == '__main__':

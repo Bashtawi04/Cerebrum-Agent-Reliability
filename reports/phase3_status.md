@@ -1,6 +1,6 @@
 # Phase 3 delivery status
 
-Audited 22 November 2026. This is a factual checklist, not mentor acceptance.
+Audited 23 November 2026. This is a factual checklist, not mentor acceptance.
 
 | Brief requirement | Status | Evidence / next action |
 |---|---|---|
@@ -16,8 +16,9 @@ Audited 22 November 2026. This is a factual checklist, not mentor acceptance.
 | Level 3: findings from supplied target evidence | Draft ready | Five findings in `findings_learning.md` |
 | New target-model runs and resulting findings | Pending mentors | Send `scenarios/lab_learning.jsonl`; incorporate returned reports and traces |
 | Respond to incoming Phase 3 review of own agent | Awaiting findings | `response_to_findings.md`; no fabricated before/after result |
-| CI workflow | Implemented; local checks pass | Hosted execution awaits a repository push |
-| New remote repository and PR | Pending destination | Brief asks to confirm where to push; do not mix into Phase 2 |
+| CI workflow | Hosted push checks passed at `fd2e33d` | Run 45133818132: Python 3.10 and 3.12; action-version update needs a new hosted run |
+| Separate GitHub repository | Published | Mentor-approved destination: Bashtawi04/Cerebrum-Agent-Reliability; both branches uploaded |
+| Pull request | Open | [PR #1](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/pull/1): `phase3-reliability` into `main`; human review pending |
 | Review teammate PR / receive review | Pending Phase 3 review | Onboarding → Learning Coach; Recruiting → Onboarding |
 | Daily update and decisions | Written | `logs/` |
 
@@ -27,7 +28,7 @@ The offline Level 2 package is ready for review. The full team workflow and Leve
 
 The previous summary understated the remaining own-agent work: lack of credentials in this environment does not waive the ten-repeat evaluation when the Windows agent can run. Three own-agent scenarios have now been added. The statistics functions also now reject an explicit `None` for k with ValueError, covered by an additional test. The local suite passes 72 tests, including all 47 supplied tests.
 
-The brief makes Level 2 the pass line; Level 3 is stretch work. New target-model results, responses to incoming findings and any resulting fixes remain honestly pending. MCP, a local-model comparison and an LLM judge are optional and are not implemented. Hosted CI, remote publication and reciprocal Phase 3 review have not happened. No Windows cleanup run is confirmed.
+The brief makes Level 2 the pass line; Level 3 is stretch work. New target-model results, responses to incoming findings and any resulting fixes remain honestly pending. MCP, a local-model comparison and an LLM judge are optional and are not implemented. Both branches are published and hosted push checks passed at `fd2e33d`. Reciprocal Phase 3 review remains pending; the updated workflow requires a new hosted run. No Windows cleanup run is confirmed.
 
 ## 22 November correction
 

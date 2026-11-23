@@ -10,7 +10,7 @@ The public checks passed **94/96 runs** (Wilson 95% interval **0.927–0.994**),
 - Inputs: `recorded/learning_agent/public_a.json`, `public_b.json`, `suite.json`, and all 120 supplied traces. Each public batch has six runs per scenario; the colleague suite has six per case.
 - Model and schedule come from `docs/NO_AZURE.md`: the mentors' `gpt-5.4-mini` deployment, November 2026, one job at a time. The recorded Python version, temperature and deployment revision are not provided; no values are inferred.
 - The supplied runner uses a fresh seeded PeopleHub database and empty agent state for each run. Its simulated date is **2026-10-16**, irrespective of the computer clock.
-- Lab code and scripted fixtures were checked locally on Python **3.12.14**, Linux, using the standard library. The supplied-target analysis uses recordings. The appended own-agent section uses 89 live Windows runs uploaded on 22 November. The earlier 65-test version also passed on Windows; the new 72-test version is verified locally. Hosted CI remains unverified.
+- Lab code and scripted fixtures were checked locally on Python **3.12.14**, Linux, using the standard library. The supplied-target analysis uses recordings. The appended own-agent section uses 89 live Windows runs uploaded on 22 November. The earlier 65-test version also passed on Windows; the new 72-test version is verified locally. Hosted push run 45133818132 passed on Python 3.10 and 3.12 at `fd2e33d`; the subsequent workflow-version update needs its own hosted check.
 - The frozen target, PeopleHub, harness, recordings, supplied tests, validator and secret checker are byte-identical to the supplied bundle. `reports/input_manifest.json` and `tools/reproduce.py` check 232 protected files.
 - Predictions for the ten new scenarios were committed as `50bf3f7` before any scripted experiment. They are preserved in `reports/predictions.json` and the cards.
 
@@ -97,7 +97,7 @@ The public A→B gate returns **ok**. Each batch passes 47/48; LRN-07 is 5/6 in 
 
 Implemented all four lab modules, added extra boundary tests and a reversible Downloads organizer, authored ten scenarios with predictions, created the two fixture variants, and added an offline CI workflow. **72 unit tests pass**, including all **47 unchanged supplied tests**. The frozen agent was not changed; there is no target improvement or before/after score to claim.
 
-The supplied-recording analysis and Level 2 offline deliverables are complete locally; the own-agent ten-repeat measurement is now included below. The findings note already documents five issues from supplied evidence. Level 3 is incomplete until new target results and findings about my own agent arrive. Remote publication, a Phase 3 PR and reciprocal peer review are pending. The brief requests a separate repository and asks us to confirm where to push it.
+The supplied-recording analysis and Level 2 offline deliverables are complete locally; the own-agent ten-repeat measurement is now included below. The findings note already documents five issues from supplied evidence. Level 3 is incomplete until new target results and findings about my own agent arrive. The mentor-approved separate GitHub repository now contains both branches. [PR #1](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/pull/1) is open; reciprocal peer review remains pending.
 
 ## What was not checked
 
@@ -105,7 +105,7 @@ The supplied-recording analysis and Level 2 offline deliverables are complete lo
 - Own-agent evaluation: 80 public and nine additional live runs recorded on Windows. Two test defects required an offline re-score; original results are preserved. Earlier Phase 2 scores are not substituted for these measurements.
 - No second model, concurrency, load, latency benchmark, cost analysis or production HR/email integration.
 - No live replay of the specific recorded failures. The supplied recordings are evidence of those runs, not today's deployment state.
-- No hosted CI execution or mentor acceptance yet. CI checks the committed evidence and fixtures; it cannot test a changed real agent without new result files.
+- Hosted push CI passed at `fd2e33d`; mentor acceptance remains pending. CI checks committed evidence and fixtures; it cannot test a changed real agent without new result files.
 - The regex honesty checker is intentionally limited; it does not verify names, amounts, dates, every action in a multi-action answer, Arabic semantics or approval safety. Human trace review and the scenario harness remain necessary.
 
 ## Own Onboarding agent — 22 November live evidence

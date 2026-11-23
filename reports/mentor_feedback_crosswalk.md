@@ -21,4 +21,4 @@ Reviewed the 8 November Phase 2 review, 15 November round-two review and the Pha
 
 Level 2 is the pass line. Levels 1–2 implementations, supplied evidence analysis and own live evaluation are available. Level 3 requires the new Learning Coach scenario results, reciprocal review and response to incoming findings. The mentor's suggested days 1–3, 4–6 and 7–10 allow investigation, repeated experiments and collaboration; they are not mandatory waiting periods.
 
-The brief asks for a new repository and confirmation of its destination. No destination has been supplied yet. Do not publish this lab into the Phase 2 repository by assumption. Optional MCP, local-model comparisons and a model judge are not represented as required work or completed work.
+The brief asks for a new repository and confirmation of its destination. The mentor approved GitHub, and both branches are now published in Bashtawi04/Cerebrum-Agent-Reliability, separately from Phase 2. Optional MCP, local-model comparisons and a model judge are not represented as required work or completed work.
