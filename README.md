@@ -1,18 +1,32 @@
-# Phase 3: the reliability lab (Onboarding Agent, Agent Bank ID 32)
+# Agent Reliability Lab — core review
 
-**Start with `03_Phase3_Brief_Onboarding_Agent.pdf`.** It explains the task, the levels and how it will be judged.
+**Yahya AlBashtawi · Cerebrum · Phase 3**
 
-1. `docs/NO_AZURE.md` (you do not need a model key for this task), then `docs/STATS_NOTES.md` and `docs/TAXONOMY.md`: a few minutes each.
-2. `harness/README.md`: the test runner. Same contract as Phase 2, plus `--agent-dir` and `--trace-dir`.
-3. `lab/` and `tests/`: your code and the tests that specify it. `docs/SCENARIO_GUIDE.md` for Level 2, `docs/TRACE_FORMAT.md` when you open a trace.
-4. `samples/`: real result files and traces to try your tools on.
+This first review contains the statistics/checker corrections, protected-input checks, honesty controls and offline CI. It is based on the runnable `main` foundation. The Learning and Onboarding evidence are separate dependent reviews; see [the branch plan](reports/review_branches.md).
 
-Quick start, from this folder (Python 3.10 or newer; on Windows use `python` instead of `python3`):
+## Reproduce
 
+Python 3.10+ and Git; standard library only. From this directory:
+
+```powershell
+python -X utf8 tools/reproduce.py
 ```
-python3 -m unittest discover -s tests -t .      # at first every test fails: that is the starting line
+
+On Linux/macOS:
+
+```bash
+python3 -X utf8 tools/reproduce.py
 ```
 
-**Start Phase 3 after your Phase 2 work has been graded.** Your own agent stays in its own repository; this folder is a new repository (ask us where to push). You do not need a model key: see `docs/NO_AZURE.md`. If you do run an agent, put its model settings in a `.env` in this folder (never commit it); the runner reads it for you. Before every commit run `python3 tools/precommit_check.py` (inside a git repository).
+This branch runs 59 tests, checks 232 protected input hashes, reproduces the two supplied tables and public A→B gate, and verifies the honesty controls. It makes no model calls.
 
-All people, records and numbers are fictional.
+## Corrections
+
+- Null or missing message text is treated as empty, while audit evidence still carries forward to later replies.
+- Statistics functions reject invalid `k` arguments consistently.
+- Extra tests cover unreferenced writes, whole-word matching, required claim forms and invalid statistics inputs.
+- CI checks Python 3.10 and 3.12. A new hosted run is needed after this branch is published.
+
+The 47 supplied tests, frozen target, harness and recordings remain unchanged. Zero checker findings is limited to its three rules; [the honesty review](reports/honesty_review.md) explains the blind spots. The public A→B gate detects no regression under its rules; it does not certify the agent or the separate colleague suite.
+
+This branch contains no Phase 2 housekeeping, live evaluation or file-moving tools. New Learning traces and findings are in `phase3-learning-review`; own-agent evidence and final status are in `phase3-onboarding-review`. Neither has been merged or accepted by the mentor merely by being prepared.
