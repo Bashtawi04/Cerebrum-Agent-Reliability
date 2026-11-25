@@ -1,3 +1,5 @@
+# Preserve exact frozen-input bytes, including the original mixed line endings.
+* -text
 reports/scripted/*.json linguist-generated=true
 reports/scripted/traces/**/*.json linguist-generated=true
 reports/input_manifest.json linguist-generated=true
