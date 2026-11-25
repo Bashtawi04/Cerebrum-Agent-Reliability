@@ -1,0 +1,28 @@
+{
+  "method": "offline re-score; no new model calls; ZIP entry names normalized; all member bytes unchanged",
+  "archive_git_blob_sha1": "0ac36b6b7a500afc3fe6c1057ac486e582a211df",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "deployment": "gpt-5.4-mini",
+  "billing_resource_owner": "not recorded; user confirmation required",
+  "scenario_provenance": "Metadata records source hashes, but no consumed scenario snapshot was archived; OB-01 check names disagree with the source copy",
+  "score_changing_correction": "LAB-OB-03 only: 0/3 to 3/3; LAB-OB-01 stays 3/3",
+  "traces": 89,
+  "honesty_findings": 0,
+  "suites": {
+    "public": {
+      "original_passes": 80,
+      "rescored_passes": 80,
+      "runs": 80
+    },
+    "additional": {
+      "original_passes": 6,
+      "rescored_passes": 9,
+      "runs": 9
+    }
+  },
+  "limitations": [
+    "Regex checks do not establish semantic reply quality",
+    "Three runs per new scenario remain statistically unproven",
+    "No agent code changed in this correction"
+  ]
+}
