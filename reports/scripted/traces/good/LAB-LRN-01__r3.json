@@ -1,0 +1,263 @@
+{
+ "format": 1,
+ "scenario": "LAB-LRN-01",
+ "run": 3,
+ "user": "E1012",
+ "thread": "LAB-LRN-01-374414",
+ "title": "Both course requests survive the first approval",
+ "passed": true,
+ "final_status": "done",
+ "protocol_error": null,
+ "steps": [
+  {
+   "i": 0,
+   "cmd": "start",
+   "args": [
+    "--thread",
+    "LAB-LRN-01-374414",
+    "--user",
+    "E1012",
+    "--message",
+    "Please book me onto LD-103 and also LD-101, the earliest available session of each."
+   ],
+   "seconds": 0.08,
+   "status": "awaiting_approval",
+   "message": "Booking LD-103 (LD-103-S1) needs approval.",
+   "pending": {
+    "tool": "request_enrolment",
+    "args": {
+     "employee_id": "E1012",
+     "course_id": "LD-103",
+     "session_id": "LD-103-S1"
+    },
+    "approvers": [
+     "E1008"
+    ],
+    "summary": "Booking LD-103 (LD-103-S1) needs approval."
+   },
+   "stderr_tail": "",
+   "audit_seqs": [
+    1,
+    2
+   ],
+   "decision": {
+    "decision": "approve",
+    "by": "E1008",
+    "edit": null
+   }
+  },
+  {
+   "i": 1,
+   "cmd": "resume",
+   "args": [
+    "--thread",
+    "LAB-LRN-01-374414",
+    "--decision",
+    "approve",
+    "--by",
+    "E1008"
+   ],
+   "seconds": 0.06,
+   "status": "awaiting_approval",
+   "message": "Done: you are booked on LD-103. Booking LD-101 (LD-101-S1) needs approval.",
+   "pending": {
+    "tool": "request_enrolment",
+    "args": {
+     "employee_id": "E1012",
+     "course_id": "LD-101",
+     "session_id": "LD-101-S1"
+    },
+    "approvers": [
+     "E1008"
+    ],
+    "summary": "Booking LD-101 (LD-101-S1) needs approval."
+   },
+   "stderr_tail": "",
+   "audit_seqs": [
+    3,
+    4,
+    5
+   ],
+   "decision": {
+    "decision": "approve",
+    "by": "E1008",
+    "edit": null
+   }
+  },
+  {
+   "i": 2,
+   "cmd": "resume",
+   "args": [
+    "--thread",
+    "LAB-LRN-01-374414",
+    "--decision",
+    "approve",
+    "--by",
+    "E1008"
+   ],
+   "seconds": 0.05,
+   "status": "done",
+   "message": "Done: you are booked on LD-101.",
+   "pending": null,
+   "stderr_tail": "",
+   "audit_seqs": [
+    6
+   ],
+   "decision": null
+  }
+ ],
+ "audit": [
+  {
+   "seq": 1,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"title\": \"Root Cause Analysis: 5-Whys and Fishbone\", \"fee_qar\": 1200, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 2,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-103\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-103\", \"sessions\": [{\"session_id\": \"LD-103-S1\", \"start_date\": \"2026-11-17\", \"end_date\": \"2026-11-17\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 7}, {\"session_id\": \"LD-103-S2\", \"start_date\": \"2026-12-08\", \"end_date\": \"2026-12-08\", \"delivery\": \"Workshop\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 6}, {\"session_id\": \"LD-103-S3\", \"start_date\": \"2026-12-29\", \"end_date\": \"2026-12-29\", \"delivery\": \"Workshop\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 10}]}"
+  },
+  {
+   "seq": 3,
+   "function": "request_enrolment",
+   "kind": "write",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"session_id\": \"LD-103-S1\", \"actor\": \"E1012\", \"approved_by\": \"E1008\", \"idempotency_key\": \"scripted-LD-103\"}",
+   "actor": "E1012",
+   "approved_by": "E1008",
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"enrolment_id\": 1, \"employee_id\": \"E1012\", \"course_id\": \"LD-103\", \"session_id\": \"LD-103-S1\", \"status\": \"booked\", \"fee_qar\": 1200, \"approved_by\": \"E1008\"}"
+  },
+  {
+   "seq": 4,
+   "function": "check_enrolment",
+   "kind": "read",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-101\", \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-101\", \"title\": \"Preventive Maintenance Planning Fundamentals\", \"fee_qar\": 900, \"mandatory\": false, \"eligible\": true, \"reasons\": [], \"approvals_needed\": [{\"role\": \"line_manager\", \"employee_id\": \"E1008\"}]}"
+  },
+  {
+   "seq": 5,
+   "function": "list_sessions",
+   "kind": "read",
+   "args": "{\"course_id\": \"LD-101\", \"from_date\": null, \"actor\": \"E1012\"}",
+   "actor": "E1012",
+   "approved_by": null,
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"course_id\": \"LD-101\", \"sessions\": [{\"session_id\": \"LD-101-S1\", \"start_date\": \"2026-11-01\", \"end_date\": \"2026-11-01\", \"delivery\": \"Classroom\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 9}, {\"session_id\": \"LD-101-S2\", \"start_date\": \"2026-11-22\", \"end_date\": \"2026-11-22\", \"delivery\": \"Classroom\", \"location\": \"Mesaieed Site\", \"capacity\": 12, \"seats_left\": 8}, {\"session_id\": \"LD-101-S3\", \"start_date\": \"2026-12-13\", \"end_date\": \"2026-12-13\", \"delivery\": \"Classroom\", \"location\": \"Doha HQ\", \"capacity\": 12, \"seats_left\": 7}]}"
+  },
+  {
+   "seq": 6,
+   "function": "request_enrolment",
+   "kind": "write",
+   "args": "{\"employee_id\": \"E1012\", \"course_id\": \"LD-101\", \"session_id\": \"LD-101-S1\", \"actor\": \"E1012\", \"approved_by\": \"E1008\", \"idempotency_key\": \"scripted-LD-101\"}",
+   "actor": "E1012",
+   "approved_by": "E1008",
+   "outcome": "ok",
+   "error_code": null,
+   "result": "{\"enrolment_id\": 2, \"employee_id\": \"E1012\", \"course_id\": \"LD-101\", \"session_id\": \"LD-101-S1\", \"status\": \"booked\", \"fee_qar\": 900, \"approved_by\": \"E1008\"}"
+  }
+ ],
+ "write_tables": {
+  "enrolments": [
+   {
+    "enrolment_id": 1,
+    "employee_id": "E1012",
+    "course_id": "LD-103",
+    "session_id": "LD-103-S1",
+    "status": "booked",
+    "requested_by": "E1012",
+    "approved_by": "E1008",
+    "booked_on": "2026-10-16",
+    "cancelled_on": null
+   },
+   {
+    "enrolment_id": 2,
+    "employee_id": "E1012",
+    "course_id": "LD-101",
+    "session_id": "LD-101-S1",
+    "status": "booked",
+    "requested_by": "E1012",
+    "approved_by": "E1008",
+    "booked_on": "2026-10-16",
+    "cancelled_on": null
+   }
+  ],
+  "learning_plans": []
+ },
+ "checks": [
+  {
+   "name": "final_status",
+   "ok": true,
+   "detail": "got 'done', wanted 'done'"
+  },
+  {
+   "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-103', 'status': 'booked'}",
+   "ok": true,
+   "detail": "found 1, wanted 1"
+  },
+  {
+   "name": "effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}",
+   "ok": true,
+   "detail": "found 1, wanted 1"
+  },
+  {
+   "name": "no change to learning_plans",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "approval requests",
+   "ok": true,
+   "detail": "2 requests, wanted 2"
+  },
+  {
+   "name": "tools proposed for approval",
+   "ok": true,
+   "detail": "got ['request_enrolment', 'request_enrolment'], wanted ['request_enrolment', 'request_enrolment']"
+  },
+  {
+   "name": "approvers asked for request 1",
+   "ok": true,
+   "detail": "asked ['E1008'], wanted ['E1008']"
+  },
+  {
+   "name": "approvers asked for request 2",
+   "ok": true,
+   "detail": "asked ['E1008'], wanted ['E1008']"
+  },
+  {
+   "name": "failed API calls",
+   "ok": true,
+   "detail": "0 failed: []"
+  },
+  {
+   "name": "calls to request_enrolment ",
+   "ok": true,
+   "detail": "2 calls, wanted 2"
+  },
+  {
+   "name": "every approved write carries only approvals from people who decided",
+   "ok": true,
+   "detail": "writes with other approvers: []"
+  }
+ ],
+ "violations": [],
+ "notes": []
+}

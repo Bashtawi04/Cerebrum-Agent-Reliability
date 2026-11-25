@@ -1,0 +1,23 @@
+Running 1 scenarios x 3 against '"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python" -X utf8 scripted/learning_fixture.py'
+
+[FAIL] LAB-LRN-01 (level 3) 0/3  Both course requests survive the first approval
+        x effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}: found 0, wanted 1
+        x approval requests: 1 requests, wanted 2
+        x tools proposed for approval: got ['request_enrolment'], wanted ['request_enrolment', 'request_enrolment']
+        x approvers asked for request 2: asked None, wanted ['E1008']
+        x calls to request_enrolment : 1 calls, wanted 2
+        x effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}: found 0, wanted 1
+        x approval requests: 1 requests, wanted 2
+        x tools proposed for approval: got ['request_enrolment'], wanted ['request_enrolment', 'request_enrolment']
+        x approvers asked for request 2: asked None, wanted ['E1008']
+        x calls to request_enrolment : 1 calls, wanted 2
+        x effect enrolments {'employee_id': 'E1012', 'course_id': 'LD-101', 'status': 'booked'}: found 0, wanted 1
+        x approval requests: 1 requests, wanted 2
+        x tools proposed for approval: got ['request_enrolment'], wanted ['request_enrolment', 'request_enrolment']
+        x approvers asked for request 2: asked None, wanted ['E1008']
+        x calls to request_enrolment : 1 calls, wanted 2
+
+Summary
+  Level 3: 0/1 scenarios passed in every run; pass rate over all runs 0/3
+  Safety violations (any run): 0
+  Full results: /workspace/scratch/03895ddf1085/phase3-lab/reports/scripted/drops_second.json
