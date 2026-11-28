@@ -1,32 +1,42 @@
-# Agent Reliability Lab — core review
+# Agent Reliability Lab — Learning evidence
 
 **Yahya AlBashtawi · Cerebrum · Phase 3**
 
-This first review contains the statistics/checker corrections, protected-input checks, honesty controls and offline CI. It is based on the runnable `main` foundation. The Learning and Onboarding evidence are separate dependent reviews; see [the branch plan](reports/review_branches.md).
+This second review adds ten scenarios, predictions, scripted controls and trace-based findings to the lab core. It incorporates the thirty Learning Coach runs returned by the mentors on 25 November. The frozen target is `5f4d9dc`; no target code changes are included.
+
+[Findings](reports/findings_learning.md) · [Evaluation report](reports/evaluation_report.md) · [New evidence](reports/learning/review.md) · [Scenario validation](reports/scenario_validation.md) · [Review branches](reports/review_branches.md)
 
 ## Reproduce
 
-Python 3.10+ and Git; standard library only. From this directory:
+Python 3.10+ and Git; no packages or credentials required.
+
+Windows / PowerShell:
 
 ```powershell
 python -X utf8 tools/reproduce.py
 ```
 
-On Linux/macOS:
+Linux/macOS:
 
 ```bash
 python3 -X utf8 tools/reproduce.py
 ```
 
-This branch runs 59 tests, checks 232 protected input hashes, reproduces the two supplied tables and public A→B gate, and verifies the honesty controls. It makes no model calls.
+This branch runs 64 tests, validates ten scenarios, verifies thirty returned traces and 232 protected input files, reproduces the earlier tables/gate, checks all 26 earlier failure labels, and runs the good/bad scripted experiments. No model calls occur.
 
-## Corrections
+## Evidence
 
-- Null or missing message text is treated as empty, while audit evidence still carries forward to later replies.
-- Statistics functions reject invalid `k` arguments consistently.
-- Extra tests cover unreferenced writes, whole-word matching, required claim forms and invalid statistics inputs.
-- CI checks Python 3.10 and 3.12. A new hosted run is needed after this branch is published.
+| Suite | Result | Meaning |
+|---|---:|---|
+| Earlier public recordings | 94/96 | Twelve repeats per case |
+| Earlier colleague recordings | 0/24 | Different cases, not a before/after change |
+| New mentor target runs | 18/30 | Original submitted assertions, preserved |
+| Same new traces after revising LAB-LRN-06 | 17/30 | Offline replay of changed assertions, not a new experiment |
 
-The 47 supplied tests, frozen target, harness and recordings remain unchanged. Zero checker findings is limited to its three rules; [the honesty review](reports/honesty_review.md) explains the blind spots. The public A→B gate detects no regression under its rules; it does not certify the agent or the separate colleague suite.
+Model: mentors' `gpt-5.4-mini`; an exact model revision was not supplied. No target safety violations were reported. The original and revised [tables](reports/learning/) include per-case Wilson intervals. Three successes remain statistically unproven.
 
-This branch contains no Phase 2 housekeeping, live evaluation or file-moving tools. New Learning traces and findings are in `phase3-learning-review`; own-agent evidence and final status are in `phase3-onboarding-review`. Neither has been merged or accepted by the mentor merely by being prepared.
+The new findings show a dropped learning-plan draft and malicious catalogue instructions copied into approval text. The original 06 test required a particular lookup route; the shared revised capability scenario checks the message instead while retaining approval protection. Its card preserves the original prediction and labels the revision as post-observation. The prior predictions remain unchanged in `reports/predictions.json`, historically committed at `50bf3f7` in the original review branch.
+
+Two fixture cases distinguish correct from deliberately broken behaviour. Raw fixture data are folded by default in GitHub's diff but retained; these are not target scores. The target archive is preserved unchanged with per-member fingerprints.
+
+Onboarding evidence, its provenance corrections and the final review response are in `phase3-onboarding-review`, the third dependent branch. Incoming peer review and hosted CI for these new heads remain separate steps.

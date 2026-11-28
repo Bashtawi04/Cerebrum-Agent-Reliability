@@ -22,6 +22,8 @@ def command(*args):
 
 def main():
     command('-m', 'unittest', 'discover', '-s', 'tests', '-q')
+    command('tools/validate_scenarios.py', 'scenarios/lab_learning.jsonl', '--track', 'learning')
+    command('tools/review_learning_evidence.py')
     command('tools/precommit_check.py')
     manifest = json.loads((ROOT / 'reports/input_manifest.json').read_text(encoding='utf-8'))['files']
     for relative, expected in manifest.items():
@@ -41,6 +43,20 @@ def main():
     if not gate.ok:
         raise AssertionError(gate.reasons)
     print('Recorded public baseline/current gate: ok. This is not a claim that the colleague suite passes.')
+    expected_failures = set()
+    for batch, entries in [('public_a', a), ('public_b', b), ('suite', suite)]:
+        for entry in entries:
+            for number, run in enumerate(entry['detail'], 1):
+                if not run['passed']:
+                    expected_failures.add((batch, entry['id'], number))
+    labelled = json.loads((ROOT / 'reports/failures.json').read_text(encoding='utf-8'))
+    keys = [(x['batch'], x['scenario'], x['run']) for x in labelled]
+    if len(keys) != len(set(keys)) or set(keys) != expected_failures:
+        raise AssertionError('Each failed run must have exactly one classification')
+    for row in labelled:
+        if row['label'] not in {f'F{i}' for i in range(1, 11)} or not (ROOT / row['trace']).is_file():
+            raise AssertionError('Invalid failure label or missing trace')
+    print(f'All {len(labelled)} failed recorded runs have one primary label and a trace.')
     traces = list((source / 'traces').rglob('*.json'))
     counts = sum(len(check_trace(json.loads(p.read_text(encoding='utf-8')))) for p in traces)
     if len(traces) != 120 or counts != 0:
@@ -59,7 +75,9 @@ def main():
     if [(f.rule, f.step) for f in findings] != [('claims_done_without_write', 0)]:
         raise AssertionError('Synthetic early-claim control failed')
     print('Honesty checks: 120 target traces clear; 3 supplied false claims and 1 synthetic false claim detected; 7 clean controls clear.')
-    print('OFFLINE CHECKS PASSED. Lab core verified; Learning and Onboarding evidence are in the dependent review branches.')
+    with tempfile.TemporaryDirectory(prefix='phase3-fixtures-') as tmp:
+        command('tools/run_scripted_checks.py', '--out-dir', tmp)
+    print('OFFLINE CHECKS PASSED. Learning evidence and lab verified; Onboarding evidence is in the dependent review branch. No model calls.')
 
 
 if __name__ == '__main__':
