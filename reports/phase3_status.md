@@ -18,8 +18,8 @@ Updated 25 November 2026 after Abdelrhman's review. This records evidence, not m
 | Scenario provenance | Source/recorded-check mismatch disclosed; future runner saves the actual consumed scenario snapshot |
 | Archive portability | Onboarding member bytes unchanged, entry paths normalised; per-member fingerprints verified |
 | Deployment identity | Microsoft Foundry deployment `gpt-5.4-mini`; exact preflight model recorded; billing owner unconfirmed |
-| PR scope | Phase 2 housekeeping removed; separate lab, Learning and Onboarding review branches prepared |
-| CI | Prior revision passed hosted Python 3.10/3.12; corrected branches need hosted checks after push |
+| PR scope | Phase 2 housekeeping removed; separate lab, Learning and Onboarding correction branches published |
+| CI | Hosted checks passed on the published correction heads: [lab](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45815126637) `2cb6b55`, [Learning](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45815126898) `319f235`, and [Onboarding](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45815126694) `2187a9f` |
 | Incoming Recruiting review | Not yet supplied; mentor will forward it |
 | Peer exchange and owner fixes | Pending actual review exchange; no invented before/after agent results |
 

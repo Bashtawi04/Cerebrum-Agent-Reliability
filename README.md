@@ -99,8 +99,8 @@ Each new batch snapshots the exact scenario bytes given to the runner, records t
 
 ## Review and completion status
 
-The mentor approved this separate GitHub repository. [PR #1](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/pull/1) contains the earlier submission and review context. The revised delivery is separated into [three dependent branches](reports/review_branches.md): lab checks, Learning evidence, then Onboarding evidence. Each has its own reproducible scope; no merge or mentor acceptance is implied.
+This separate GitHub repository preserves the earlier submission and review context in [PR #1](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/pull/1). The revised delivery is separated into [three dependent, published branches](reports/review_branches.md): lab checks, Learning evidence, then Onboarding evidence. This does not imply peer review, mentor acceptance or agent fixes.
 
-The previous hosted [CI run](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45136982970) passed on Python 3.10 and 3.12 at `9d6a7b7`. Revised branches require their own hosted checks after publication.
+The three published correction heads passed hosted CI: [lab](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45815126637) at `2cb6b55`, [Learning](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45815126898) at `319f235`, and [Onboarding](https://github.com/Bashtawi04/Cerebrum-Agent-Reliability/actions/runs/45815126694) at `2187a9f`.
 
 Level 3 still needs the peer exchange and responses to incoming Recruiting findings on my Onboarding agent. Abdelrhman will forward those findings when available. The new Learning runs have arrived and are analysed; they are no longer a pending task. Known own-agent reply-quality issues remain visible in the Onboarding review. No demonstration is added as a requirement.
