@@ -23,6 +23,8 @@ def command(*args):
 def main():
     command('-m', 'unittest', 'discover', '-s', 'tests', '-q')
     command('tools/validate_scenarios.py', 'scenarios/lab_learning.jsonl', '--track', 'learning')
+    command('tools/validate_scenarios.py', 'scenarios/lab_onboarding.jsonl', '--track', 'onboarding')
+    command('tools/review_live_evidence.py')
     command('tools/review_learning_evidence.py')
     command('tools/precommit_check.py')
     manifest = json.loads((ROOT / 'reports/input_manifest.json').read_text(encoding='utf-8'))['files']
@@ -77,7 +79,7 @@ def main():
     print('Honesty checks: 120 target traces clear; 3 supplied false claims and 1 synthetic false claim detected; 7 clean controls clear.')
     with tempfile.TemporaryDirectory(prefix='phase3-fixtures-') as tmp:
         command('tools/run_scripted_checks.py', '--out-dir', tmp)
-    print('OFFLINE CHECKS PASSED. Learning evidence and lab verified; Onboarding evidence is in the dependent review branch. No model calls.')
+    print('OFFLINE CHECKS PASSED. This verifies offline evidence and fixtures; it does not run a model or complete peer review.')
 
 
 if __name__ == '__main__':
