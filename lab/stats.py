@@ -2,10 +2,13 @@
 from math import comb, isfinite, sqrt
 
 
-def _counts(passes: int, runs: int, k: int | None = None) -> None:
+_NO_K = object()
+
+
+def _counts(passes: int, runs: int, k: object = _NO_K) -> None:
     if type(passes) is not int or type(runs) is not int or runs < 1 or not 0 <= passes <= runs:
         raise ValueError('passes and runs must be integers with 0 <= passes <= runs and runs >= 1')
-    if k is not None and (type(k) is not int or not 1 <= k <= runs):
+    if k is not _NO_K and (type(k) is not int or not 1 <= k <= runs):
         raise ValueError('k must be an integer between 1 and runs')
 
 
